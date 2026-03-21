@@ -26,11 +26,15 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;back
 .nav-links a{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;cursor:none}
 .nav-links a:hover{color:var(--gold)}
 .nav-actions{display:flex;align-items:center;gap:8px}
-.theme-btn{padding:4px 10px;display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;background:transparent;border:1px solid var(--border2);color:var(--muted);cursor:none;transition:all .2s}
-.theme-btn:hover{color:var(--gold);border-color:var(--border)}
-.theme-icon{display:inline-block;font-size:.72rem;line-height:1;transform:rotate(0deg) scale(1);opacity:.95;transition:transform .3s ease,opacity .25s ease,color .2s ease}
-.theme-btn.switching .theme-icon{transform:rotate(180deg) scale(.72);opacity:.4}
-.theme-btn[data-theme-state='light'] .theme-icon{color:var(--gold2)}
+.theme-btn{position:relative;width:54px;height:26px;padding:0 6px;display:inline-flex;align-items:center;justify-content:space-between;background:rgba(201,168,76,.08);border:1px solid var(--border);border-radius:999px;cursor:none;transition:all .2s}
+.theme-btn:hover{border-color:var(--gold)}
+.theme-sun,.theme-moon{font-size:.68rem;line-height:1;z-index:2;transition:color .2s ease}
+.theme-sun{color:var(--on-gold)}
+.theme-moon{color:var(--muted)}
+.theme-thumb{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(201,168,76,.35);transition:transform .24s ease}
+.theme-btn[data-theme-state='light'] .theme-thumb{transform:translateX(28px)}
+.theme-btn[data-theme-state='light'] .theme-sun{color:var(--muted)}
+.theme-btn[data-theme-state='light'] .theme-moon{color:var(--on-gold)}
 .lang-switcher{display:flex;gap:2px}
 .lang-btn{padding:4px 10px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;background:transparent;border:1px solid transparent;color:var(--muted);cursor:none;transition:all .2s}
 .lang-btn:hover{color:var(--gold)}
@@ -199,7 +203,7 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
     <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
   </ul>
   <div class="nav-actions">
-    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()" aria-label="Switch theme"><span id="themeIcon" class="theme-icon" aria-hidden="true">☀</span><span id="themeLabel">LIGHT</span></button>
+    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()" aria-label="Switch theme"><span class="theme-sun" aria-hidden="true">☀</span><span class="theme-moon" aria-hidden="true">☾</span><span class="theme-thumb" aria-hidden="true"></span></button>
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('zh')">中文</button>
@@ -381,22 +385,18 @@ const THEME_KEY='rt-theme';
 let currentLang='en';
 
 const THEME_TEXT={
-  en:{light:'LIGHT',dark:'DARK',toLight:'Switch to light theme',toDark:'Switch to dark theme'},
-  zh:{light:'浅色',dark:'深色',toLight:'切换到浅色主题',toDark:'切换到深色主题'},
-  ja:{light:'ライト',dark:'ダーク',toLight:'ライトテーマに切り替え',toDark:'ダークテーマに切り替え'},
-  fr:{light:'CLAIR',dark:'SOMBRE',toLight:'Passer au theme clair',toDark:'Passer au theme sombre'}
+  en:{toLight:'Switch to light theme',toDark:'Switch to dark theme'},
+  zh:{toLight:'切换到浅色主题',toDark:'切换到深色主题'},
+  ja:{toLight:'ライトテーマに切り替え',toDark:'ダークテーマに切り替え'},
+  fr:{toLight:'Passer au theme clair',toDark:'Passer au theme sombre'}
 };
 
 function updateThemeButton(theme){
   const btn=document.getElementById('themeBtn');
-  const label=document.getElementById('themeLabel');
-  const icon=document.getElementById('themeIcon');
-  if(!btn||!label||!icon)return;
+  if(!btn)return;
   const t=THEME_TEXT[currentLang]||THEME_TEXT.en;
   const isLight=theme==='light';
   btn.dataset.themeState=theme;
-  label.textContent=isLight?t.dark:t.light;
-  icon.textContent=isLight?'☾':'☀';
   btn.setAttribute('aria-label',isLight?t.toDark:t.toLight);
 }
 
@@ -415,11 +415,6 @@ function initTheme(){
 function toggleTheme(){
   const current=document.documentElement.getAttribute('data-theme')||'dark';
   const next=current==='dark'?'light':'dark';
-  const btn=document.getElementById('themeBtn');
-  if(btn){
-    btn.classList.add('switching');
-    setTimeout(()=>btn.classList.remove('switching'),220);
-  }
   localStorage.setItem(THEME_KEY,next);
   applyTheme(next);
 }
