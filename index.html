@@ -28,9 +28,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;back
 .nav-actions{display:flex;align-items:center;gap:8px}
 .theme-btn{position:relative;width:54px;height:26px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(201,168,76,.08);border:1px solid var(--border);border-radius:999px;cursor:none;transition:all .2s}
 .theme-btn:hover{border-color:var(--gold)}
-.theme-sun,.theme-moon{position:absolute;font-size:.68rem;line-height:1;z-index:2;transition:color .2s ease}
-.theme-sun{left:8px}
-.theme-moon{right:8px}
+.theme-sun,.theme-moon{position:absolute;top:50%;font-size:.68rem;line-height:1;z-index:2;transform:translate(-50%,-50%);transition:color .2s ease}
+.theme-sun{left:12px}
+.theme-moon{left:40px}
 .theme-sun{color:var(--on-gold)}
 .theme-moon{color:var(--muted)}
 .theme-thumb{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(201,168,76,.35);transition:transform .24s ease}
