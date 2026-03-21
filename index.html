@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#060810;--bg2:#0b0f1e;--gold:#c9a84c;--gold2:#e8c97a;--cyan:#00d4ff;--text:#dde2f0;--muted:#525870;--border:rgba(201,168,76,.18);--border2:rgba(201,168,76,.08);--nav-bg:rgba(6,8,16,.9)}
-[data-theme='light']{--bg:#f6f2e9;--bg2:#fffaf0;--gold:#9b7a2f;--gold2:#b89445;--cyan:#006e87;--text:#1f2430;--muted:#5f6678;--border:rgba(155,122,47,.28);--border2:rgba(155,122,47,.14);--nav-bg:rgba(246,242,233,.92)}
+:root{--bg:#060810;--bg2:#0b0f1e;--gold:#c9a84c;--gold2:#e8c97a;--cyan:#00d4ff;--text:#dde2f0;--muted:#525870;--border:rgba(201,168,76,.18);--border2:rgba(201,168,76,.08);--nav-bg:rgba(6,8,16,.9);--on-gold:#060810}
+[data-theme='light']{--bg:#f7f2e7;--bg2:#fffdf8;--gold:#8c6a22;--gold2:#ad8440;--cyan:#0a6f86;--text:#181d27;--muted:#4f586d;--border:rgba(140,106,34,.30);--border2:rgba(140,106,34,.15);--nav-bg:rgba(247,242,231,.94);--on-gold:#181104}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'DM Mono',monospace;overflow-x:hidden;cursor:none}
@@ -26,8 +26,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;back
 .nav-links a{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;cursor:none}
 .nav-links a:hover{color:var(--gold)}
 .nav-actions{display:flex;align-items:center;gap:8px}
-.theme-btn{padding:4px 10px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;background:transparent;border:1px solid var(--border2);color:var(--muted);cursor:none;transition:all .2s}
+.theme-btn{padding:4px 10px;display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;background:transparent;border:1px solid var(--border2);color:var(--muted);cursor:none;transition:all .2s}
 .theme-btn:hover{color:var(--gold);border-color:var(--border)}
+.theme-icon{font-size:.72rem;line-height:1}
 .lang-switcher{display:flex;gap:2px}
 .lang-btn{padding:4px 10px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;background:transparent;border:1px solid transparent;color:var(--muted);cursor:none;transition:all .2s}
 .lang-btn:hover{color:var(--gold)}
@@ -54,7 +55,7 @@ h1 .ac{color:var(--gold)}
 h1 .hope{color:var(--gold)}
 .hero-desc{font-size:.8rem;line-height:2.1;color:var(--muted);max-width:480px;margin:30px auto 46px;animation:fadeUp 1s .2s ease both}
 .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s .3s ease both}
-.btn-g{padding:13px 32px;background:var(--gold);color:var(--bg);font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-decoration:none;cursor:none;font-weight:500;position:relative;overflow:hidden;transition:opacity .2s}
+.btn-g{padding:13px 32px;background:var(--gold);color:var(--on-gold);font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-decoration:none;cursor:none;font-weight:500;position:relative;overflow:hidden;transition:opacity .2s}
 .btn-g::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%);transition:transform .3s}
 .btn-g:hover::after{transform:translateX(0)}
 .btn-o{padding:13px 32px;background:transparent;color:var(--text);font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-decoration:none;cursor:none;border:1px solid var(--border);transition:all .2s}
@@ -196,7 +197,7 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
     <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
   </ul>
   <div class="nav-actions">
-    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()" aria-label="Switch theme">LIGHT</button>
+    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()" aria-label="Switch theme"><span class="theme-icon" aria-hidden="true">◐</span><span id="themeLabel">LIGHT</span></button>
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('zh')">中文</button>
@@ -375,15 +376,28 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
 
 <script>
 const THEME_KEY='rt-theme';
+let currentLang='en';
+
+const THEME_TEXT={
+  en:{light:'LIGHT',dark:'DARK',toLight:'Switch to light theme',toDark:'Switch to dark theme'},
+  zh:{light:'浅色',dark:'深色',toLight:'切换到浅色主题',toDark:'切换到深色主题'},
+  ja:{light:'ライト',dark:'ダーク',toLight:'ライトテーマに切り替え',toDark:'ダークテーマに切り替え'},
+  fr:{light:'CLAIR',dark:'SOMBRE',toLight:'Passer au theme clair',toDark:'Passer au theme sombre'}
+};
+
+function updateThemeButton(theme){
+  const btn=document.getElementById('themeBtn');
+  const label=document.getElementById('themeLabel');
+  if(!btn||!label)return;
+  const t=THEME_TEXT[currentLang]||THEME_TEXT.en;
+  const isLight=theme==='light';
+  label.textContent=isLight?t.dark:t.light;
+  btn.setAttribute('aria-label',isLight?t.toDark:t.toLight);
+}
 
 function applyTheme(theme){
   document.documentElement.setAttribute('data-theme',theme);
-  const btn=document.getElementById('themeBtn');
-  if(btn){
-    const isLight=theme==='light';
-    btn.textContent=isLight?'DARK':'LIGHT';
-    btn.setAttribute('aria-label',isLight?'Switch to dark theme':'Switch to light theme');
-  }
+  updateThemeButton(theme);
 }
 
 function initTheme(){
@@ -424,12 +438,14 @@ fr:{nav_about:'À propos',nav_now:'Maintenant',nav_projects:'Projets',nav_writin
 };
 
 function setLang(l){
+  currentLang=l;
   const d=T[l];
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!==undefined)el.innerHTML=d[k]});
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
   const map={en:'EN',zh:'中文',ja:'日本語',fr:'FR'};
   document.querySelectorAll('.lang-btn').forEach(b=>{if(b.textContent===map[l])b.classList.add('active')});
   document.documentElement.lang=l==='zh'?'zh-Hans':l==='ja'?'ja':l;
+  updateThemeButton(document.documentElement.getAttribute('data-theme')||'dark');
 }
 </script>
 </body>
