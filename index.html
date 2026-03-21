@@ -8,21 +8,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#060810;--bg2:#0b0f1e;--gold:#c9a84c;--gold2:#e8c97a;--cyan:#00d4ff;--text:#dde2f0;--muted:#525870;--border:rgba(201,168,76,.18);--border2:rgba(201,168,76,.08)}
+:root{--bg:#060810;--bg2:#0b0f1e;--gold:#c9a84c;--gold2:#e8c97a;--cyan:#00d4ff;--text:#dde2f0;--muted:#525870;--border:rgba(201,168,76,.18);--border2:rgba(201,168,76,.08);--nav-bg:rgba(6,8,16,.9)}
+[data-theme='light']{--bg:#f6f2e9;--bg2:#fffaf0;--gold:#9b7a2f;--gold2:#b89445;--cyan:#006e87;--text:#1f2430;--muted:#5f6678;--border:rgba(155,122,47,.28);--border2:rgba(155,122,47,.14);--nav-bg:rgba(246,242,233,.92)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'DM Mono',monospace;overflow-x:hidden;cursor:none}
 #cur{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen}
 #cur-ring{position:fixed;width:28px;height:28px;border:1px solid rgba(201,168,76,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:.3}
+[data-theme='light'] body::after{opacity:.14}
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:56px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,8,16,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);transition:border-color .3s}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:56px;display:flex;align-items:center;justify-content:space-between;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);transition:border-color .3s}
 .nav-logo{display:flex;align-items:center;gap:12px;font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);text-decoration:none;letter-spacing:.12em}
 .nav-logo img{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(201,168,76,.4))}
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;cursor:none}
 .nav-links a:hover{color:var(--gold)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.theme-btn{padding:4px 10px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;background:transparent;border:1px solid var(--border2);color:var(--muted);cursor:none;transition:all .2s}
+.theme-btn:hover{color:var(--gold);border-color:var(--border)}
 .lang-switcher{display:flex;gap:2px}
 .lang-btn{padding:4px 10px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;background:transparent;border:1px solid transparent;color:var(--muted);cursor:none;transition:all .2s}
 .lang-btn:hover{color:var(--gold)}
@@ -162,6 +167,7 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
 /* MOBILE */
 @media(max-width:768px){
   .nav{padding:0 20px}.nav-links{display:none}
+  .nav-actions{gap:4px}
   .hero{padding:90px 24px 70px}
   .s-inner{padding:72px 24px}
   .about-grid,.ct-grid{grid-template-columns:1fr;gap:40px}
@@ -189,11 +195,14 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
     <li><a href="#writing" data-i18n="nav_writing">Writing</a></li>
     <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
   </ul>
-  <div class="lang-switcher">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('zh')">中文</button>
-    <button class="lang-btn" onclick="setLang('ja')">日本語</button>
-    <button class="lang-btn" onclick="setLang('fr')">FR</button>
+  <div class="nav-actions">
+    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()" aria-label="Switch theme">LIGHT</button>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+      <button class="lang-btn" onclick="setLang('ja')">日本語</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    </div>
   </div>
 </nav>
 
@@ -365,6 +374,34 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
 </footer>
 
 <script>
+const THEME_KEY='rt-theme';
+
+function applyTheme(theme){
+  document.documentElement.setAttribute('data-theme',theme);
+  const btn=document.getElementById('themeBtn');
+  if(btn){
+    const isLight=theme==='light';
+    btn.textContent=isLight?'DARK':'LIGHT';
+    btn.setAttribute('aria-label',isLight?'Switch to dark theme':'Switch to light theme');
+  }
+}
+
+function initTheme(){
+  const saved=localStorage.getItem(THEME_KEY);
+  const prefersLight=window.matchMedia('(prefers-color-scheme: light)').matches;
+  const theme=saved||(prefersLight?'light':'dark');
+  applyTheme(theme);
+}
+
+function toggleTheme(){
+  const current=document.documentElement.getAttribute('data-theme')||'dark';
+  const next=current==='dark'?'light':'dark';
+  localStorage.setItem(THEME_KEY,next);
+  applyTheme(next);
+}
+
+initTheme();
+
 // Cursor
 const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
 let mx=0,my=0,rx=0,ry=0;
