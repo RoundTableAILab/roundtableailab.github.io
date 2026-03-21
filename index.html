@@ -388,6 +388,11 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
 const THEME_KEY='rt-theme';
 let currentLang='en';
 let writingsData=[];
+const SUPPORTED_WRITING_LANGS=['en','zh','ja','fr'];
+const AUTO_TRANSLATE_LANGS=true;
+const translationCache=new Map();
+const translationInFlight=new Set();
+const translationFailed=new Set();
 
 const THEME_TEXT={
   en:{toLight:'Switch to light theme',toDark:'Switch to dark theme'},
@@ -467,7 +472,62 @@ Object.assign(T.fr,{p1d:"Moteur open source de génération PowerPoint conçu po
 
 function getLocalizedContent(source,lang){
   if(!source||typeof source!=='object')return '';
-  return source[lang]||source.en||'';
+  return source[lang]||source.en||source.zh||source.ja||source.fr||'';
+}
+
+function mapTranslateLang(lang){
+  if(lang==='zh')return 'zh-CN';
+  return lang;
+}
+
+function pickSourceLang(source,targetLang){
+  for(const lang of SUPPORTED_WRITING_LANGS){
+    if(lang!==targetLang&&source[lang])return lang;
+  }
+  return null;
+}
+
+async function translateText(text,fromLang,toLang){
+  const sl=mapTranslateLang(fromLang||'auto');
+  const tl=mapTranslateLang(toLang);
+  const url=`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}&dt=t&q=${encodeURIComponent(text)}`;
+  const res=await fetch(url);
+  if(!res.ok)throw new Error(`Translate request failed: ${res.status}`);
+  const data=await res.json();
+  if(!Array.isArray(data)||!Array.isArray(data[0]))return '';
+  return data[0].map(part=>part[0]).join('').trim();
+}
+
+async function translateMissingField(item,field,targetLang){
+  if(!AUTO_TRANSLATE_LANGS)return;
+  const source=item[field];
+  if(!source||typeof source!=='object'||source[targetLang])return;
+  const fromLang=pickSourceLang(source,targetLang);
+  if(!fromLang)return;
+  const original=source[fromLang];
+  if(!original)return;
+
+  const key=`${fromLang}:${targetLang}:${field}:${original}`;
+  if(translationCache.has(key)){
+    source[targetLang]=translationCache.get(key);
+    return;
+  }
+  if(translationInFlight.has(key)||translationFailed.has(key))return;
+
+  translationInFlight.add(key);
+  try{
+    const translated=await translateText(original,fromLang,targetLang);
+    if(translated){
+      translationCache.set(key,translated);
+      source[targetLang]=translated;
+    }else{
+      translationFailed.add(key);
+    }
+  }catch(_err){
+    translationFailed.add(key);
+  }finally{
+    translationInFlight.delete(key);
+  }
 }
 
 function formatWritingDate(date){
@@ -486,6 +546,8 @@ function renderWritings(){
   const list=document.getElementById('writingList');
   if(!list)return;
   list.innerHTML='';
+  const langAtRender=currentLang;
+  const translationJobs=[];
 
   sortedWritings(writingsData).forEach(item=>{
     const article=document.createElement('article');
@@ -504,10 +566,12 @@ function renderWritings(){
     const title=document.createElement('div');
     title.className='w-title';
     title.textContent=getLocalizedContent(item.title,currentLang);
+    if(!item.title?.[currentLang])translationJobs.push(translateMissingField(item,'title',currentLang));
 
     const sub=document.createElement('div');
     sub.className='w-sub';
     sub.textContent=getLocalizedContent(item.summary,currentLang);
+    if(!item.summary?.[currentLang])translationJobs.push(translateMissingField(item,'summary',currentLang));
 
     main.append(title,sub);
 
@@ -537,6 +601,12 @@ function renderWritings(){
     article.append(date,main,links);
     list.appendChild(article);
   });
+
+  if(translationJobs.length>0){
+    Promise.allSettled(translationJobs).then(()=>{
+      if(currentLang===langAtRender)renderWritings();
+    });
+  }
 }
 
 async function loadWritings(){
