@@ -28,7 +28,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;back
 .nav-actions{display:flex;align-items:center;gap:8px}
 .theme-btn{padding:4px 10px;display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;background:transparent;border:1px solid var(--border2);color:var(--muted);cursor:none;transition:all .2s}
 .theme-btn:hover{color:var(--gold);border-color:var(--border)}
-.theme-icon{font-size:.72rem;line-height:1}
+.theme-icon{display:inline-block;font-size:.72rem;line-height:1;transform:rotate(0deg) scale(1);opacity:.95;transition:transform .3s ease,opacity .25s ease,color .2s ease}
+.theme-btn.switching .theme-icon{transform:rotate(180deg) scale(.72);opacity:.4}
+.theme-btn[data-theme-state='light'] .theme-icon{color:var(--gold2)}
 .lang-switcher{display:flex;gap:2px}
 .lang-btn{padding:4px 10px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;background:transparent;border:1px solid transparent;color:var(--muted);cursor:none;transition:all .2s}
 .lang-btn:hover{color:var(--gold)}
@@ -197,7 +199,7 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
     <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
   </ul>
   <div class="nav-actions">
-    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()" aria-label="Switch theme"><span class="theme-icon" aria-hidden="true">◐</span><span id="themeLabel">LIGHT</span></button>
+    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()" aria-label="Switch theme"><span id="themeIcon" class="theme-icon" aria-hidden="true">☀</span><span id="themeLabel">LIGHT</span></button>
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('zh')">中文</button>
@@ -388,10 +390,13 @@ const THEME_TEXT={
 function updateThemeButton(theme){
   const btn=document.getElementById('themeBtn');
   const label=document.getElementById('themeLabel');
-  if(!btn||!label)return;
+  const icon=document.getElementById('themeIcon');
+  if(!btn||!label||!icon)return;
   const t=THEME_TEXT[currentLang]||THEME_TEXT.en;
   const isLight=theme==='light';
+  btn.dataset.themeState=theme;
   label.textContent=isLight?t.dark:t.light;
+  icon.textContent=isLight?'☾':'☀';
   btn.setAttribute('aria-label',isLight?t.toDark:t.toLight);
 }
 
@@ -410,6 +415,11 @@ function initTheme(){
 function toggleTheme(){
   const current=document.documentElement.getAttribute('data-theme')||'dark';
   const next=current==='dark'?'light':'dark';
+  const btn=document.getElementById('themeBtn');
+  if(btn){
+    btn.classList.add('switching');
+    setTimeout(()=>btn.classList.remove('switching'),220);
+  }
   localStorage.setItem(THEME_KEY,next);
   applyTheme(next);
 }
