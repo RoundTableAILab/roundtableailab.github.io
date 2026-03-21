@@ -18,8 +18,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;back
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:56px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,8,16,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);transition:border-color .3s}
-.nav-logo{font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold);text-decoration:none;letter-spacing:.12em}
-.nav-logo span{color:var(--muted);font-size:.65rem;font-family:'DM Mono',monospace}
+.nav-logo{display:flex;align-items:center;gap:12px;font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);text-decoration:none;letter-spacing:.12em}
+.nav-logo img{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(201,168,76,.4))}
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;cursor:none}
 .nav-links a:hover{color:var(--gold)}
@@ -78,7 +78,8 @@ h1 .hope{color:var(--gold)}
 .kvr1 .kvd{background:var(--gold);box-shadow:0 0 10px var(--gold)}
 .kvr2 .kvd{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
 .kvr3 .kvd{background:#a78bfa;box-shadow:0 0 8px #a78bfa}
-.kvc{position:relative;z-index:2;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#7c5c1e);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(201,168,76,.4);font-family:'Cinzel',serif;font-size:.9rem;color:var(--bg)}
+.kvc{position:relative;z-index:2;width:64px;height:64px;display:flex;align-items:center;justify-content:center}
+.kvc img{width:135%;height:135%;object-fit:contain;filter:drop-shadow(0 0 10px var(--gold))}
 .about-text p{font-size:.78rem;line-height:2.1;color:var(--muted);margin-bottom:16px}
 .about-text p strong{color:var(--text)}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
@@ -143,7 +144,8 @@ h1 .hope{color:var(--gold)}
 
 /* FOOTER */
 footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.f-logo{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);letter-spacing:.12em}
+.f-logo{display:flex;align-items:center;gap:12px;font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);letter-spacing:.12em}
+.f-logo img{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(201,168,76,.4))}
 .f-slogan{font-size:.58rem;color:var(--muted);letter-spacing:.14em;font-style:italic}
 .f-copy{font-size:.58rem;color:var(--muted)}
 
@@ -180,7 +182,7 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="#" class="nav-logo">RoundTable <span>AI Lab</span></a>
+  <a href="#" class="nav-logo"><img src="roundtable-logo-transparent.png" alt="RT Logo">RoundTable AI Lab</a>
   <ul class="nav-links">
     <li><a href="#about" data-i18n="nav_about">About</a></li>
     <li><a href="#now" data-i18n="nav_now">Now</a></li>
@@ -227,7 +229,7 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
         <div class="kvr kvr1"><div class="kvd"></div></div>
         <div class="kvr kvr2"><div class="kvd"></div></div>
         <div class="kvr kvr3"><div class="kvd"></div></div>
-        <div class="kvc">🏰</div>
+        <div class="kvc"><img src="roundtable-logo-transparent.png" alt="RoundTable AI Logo"></div>
       </div>
       <div class="about-text">
         <p data-i18n="about_p1"><strong>Born in Shanghai. Based in Tokyo.</strong> Working at the intersection of AI and the people who build, buy, and deploy it.</p>
@@ -354,7 +356,7 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
 </section>
 
 <footer>
-  <span class="f-logo">RoundTable AI Lab</span>
+  <span class="f-logo"><img src="roundtable-logo-transparent.png" alt="RT Logo">RoundTable AI Lab</span>
   <span class="f-slogan" data-i18n="f_slogan">Every Seat. Every Idea. For What Comes Next.</span>
   <span class="f-copy">© 2025 Lijun Liu · Tokyo</span>
 </footer>
