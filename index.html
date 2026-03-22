@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RoundTable AI Lab</title>
 <meta name="description" content="RoundTable AI Lab — AI tools research, market insights, and honest perspectives. Every Seat. Every Idea. For What Comes Next.">
-
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://roundtableailab.org/">
 <meta property="og:title" content="RoundTable AI Lab">
@@ -15,257 +13,476 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="RoundTable AI Lab">
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="RoundTable AI Lab">
 <meta name="twitter:description" content="AI tools research, market insights, and honest perspectives. Every Seat. Every Idea. For What Comes Next.">
 <meta name="twitter:image" content="https://roundtableailab.org/og-image.png?v=20260322">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cinzel:wght@400;600;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#060810;--bg2:#0b0f1e;--gold:#c9a84c;--gold2:#e8c97a;--gold-gradient: linear-gradient(135deg, #c9a84c 0%, #ffebaf 50%, #ad8440 100%);--gold-glow: 0 0 25px rgba(201,168,76, 0.35);--cyan:#00d4ff;--text:#dde2f0;--muted:#525870;--border:rgba(201,168,76,.18);--border2:rgba(201,168,76,.08);--nav-bg:rgba(6,8,16,.9);--on-gold:#060810;--cursor-dot:var(--gold);--cursor-ring:rgba(201,168,76,.45);--cursor-blend:screen}
-[data-theme='light']{--bg:#f7f2e7;--bg2:#fffdf8;--gold:#8c6a22;--gold2:#ad8440;--gold-gradient: linear-gradient(135deg, #8c6a22 0%, #ad8440 50%, #6b4f17 100%);--gold-glow: 0 0 20px rgba(140,106,34, 0.2);--cyan:#0a6f86;--text:#181d27;--muted:#4f586d;--border:rgba(140,106,34,.30);--border2:rgba(140,106,34,.15);--nav-bg:rgba(247,242,231,.94);--on-gold:#181104;--cursor-dot:#181d27;--cursor-ring:rgba(24,29,39,.42);--cursor-blend:normal}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Mono',monospace;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-strong{font-weight:500}
-#cur{position:fixed;width:8px;height:8px;background:var(--cursor-dot);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:var(--cursor-blend)}
-#cur-ring{position:fixed;width:28px;height:28px;border:1px solid var(--cursor-ring);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:.3}
-[data-theme='light'] body::after{opacity:.14}
+/* ===== VARIABLES ===== */
+:root {
+  --bg: #040508;
+  --bg2: #080b14;
+  --gold: #c9a84c;
+  --gold2: #e8c97a;
+  --gold-bright: #ffebaf;
+  --gold-deep: #8c6a22;
+  --gold-gradient: linear-gradient(135deg, #c9a84c 0%, #ffebaf 50%, #ad8440 100%);
+  --gold-glow: 0 0 25px rgba(201,168,76,0.35);
+  --cyan: #00d4ff;
+  --text: #dde2f0;
+  --muted: #8891a8;
+  --muted2: #6b7490;
+  --border: rgba(201,168,76,.18);
+  --border2: rgba(201,168,76,.08);
+  --nav-bg: rgba(4,5,8,0.85);
+  --on-gold: #060810;
+  --aura: rgba(201,168,76,0.15);
+}
 
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:56px;display:flex;align-items:center;justify-content:space-between;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);transition:border-color .3s}
-.nav-logo{display:flex;align-items:center;gap:12px;font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);text-decoration:none;letter-spacing:.12em}
-.nav-logo img{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(201,168,76,.4))}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;cursor:none}
-.nav-links a:hover{color:var(--gold)}
-.nav-actions{display:flex;align-items:center;gap:8px}
-.theme-btn{position:relative;width:54px;height:26px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(201,168,76,.08);border:1px solid var(--border);border-radius:999px;cursor:none;transition:all .2s}
-.theme-btn:hover{border-color:var(--gold)}
-.theme-sun,.theme-moon{position:absolute;top:50%;font-size:.68rem;line-height:1;z-index:2;transform:translate(-50%,-50%);transition:color .2s ease}
-.theme-sun{left:12px}
-.theme-moon{left:40px}
-.theme-sun{color:var(--on-gold)}
-.theme-moon{color:var(--muted)}
-.theme-thumb{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(201,168,76,.35);transition:transform .24s ease}
-.theme-btn[data-theme-state='dark'] .theme-thumb{transform:translateX(28px)}
-.theme-btn[data-theme-state='dark'] .theme-sun{color:var(--muted)}
-.theme-btn[data-theme-state='dark'] .theme-moon{color:var(--on-gold)}
-.lang-switcher{display:flex;gap:2px}
-.lang-btn{padding:4px 10px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;background:transparent;border:1px solid transparent;color:var(--muted);cursor:none;transition:all .2s}
-.lang-btn:hover{color:var(--gold)}
-.lang-btn.active{color:var(--gold);border-color:var(--border)}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 18px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+strong { font-weight: 500; }
 
-/* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 60px 80px;overflow:hidden}
-.hero-grid{position:absolute;inset:0;background-image:radial-gradient(rgba(201,168,76,.15) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%);opacity:.4}
-.hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;animation:pulse 4s infinite ease-in-out}
-.tring{position:absolute;border-radius:50%;border:1px solid var(--border2);top:50%;left:50%;box-shadow: inset 0 0 15px rgba(201,168,76,.05)}
-.tr1{width:240px;height:240px;animation:spinC 22s linear infinite;transform:translate(-50%,-50%);border-width:2px;border-color:rgba(201,168,76,0.25)}
-.tr2{width:400px;height:400px;animation:spinC 36s linear infinite reverse;transform:translate(-50%,-50%)}
-.tr3{width:560px;height:560px;animation:spinC 52s linear infinite;border-style:dashed;transform:translate(-50%,-50%)}
-.rseat{position:absolute;width:12px;height:12px;border-radius:50%;top:-6px;left:50%;transform:translateX(-50%);border: 1px solid rgba(255,255,255,0.2)}
-.tr1 .rseat{background:var(--gold);box-shadow:0 0 15px var(--gold), 0 0 30px var(--gold)}
-.tr2 .rseat{background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
-.tr3 .rseat{background:#a78bfa;box-shadow:0 0 10px #a78bfa}
-.hero-content{position:relative;z-index:2;max-width:720px;text-align:center}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:36px;padding:5px 18px;border:1px solid var(--border);background:rgba(201,168,76,.04);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);animation:fadeDown 1s ease both}
-.edot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
-h1{font-family:'Cinzel',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.05;letter-spacing:.02em;animation:fadeUp 1s .1s ease both}
-h1>span{display:block}
-h1 .ac{color:var(--gold)}
-h1 .hope{background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:var(--gold-glow)}
-.hero-desc{font-size:.85rem;line-height:2.1;color:var(--muted);max-width:520px;margin:30px auto 46px;animation:fadeUp 1s .2s ease both;font-weight:300}
-.ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s .3s ease both}
-.btn-g{padding:13px 36px;background:var(--gold);color:var(--on-gold);font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.12em;text-decoration:none;cursor:none;font-weight:700;position:relative;overflow:hidden;transition:all .3s ease;box-shadow: 0 4px 15px rgba(0,0,0,0.4);border-radius:2px;border:none}
-.btn-g::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transform:translateX(-100%);transition:transform .6s ease-in-out}
-.btn-g:hover{transform:translateY(-2px);background:var(--gold2);box-shadow: 0 6px 25px rgba(201,168,76,0.4)}
-.btn-g:hover::after{transform:translateX(100%)}
-.btn-o{padding:13px 36px;background:transparent;color:var(--text);font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.12em;text-decoration:none;cursor:none;border:1px solid var(--border);transition:all .2s;border-radius:2px;font-weight:600}
-.btn-o:hover{border-color:var(--gold);color:var(--gold)}
-.scroll-h{position:absolute;bottom:40px;left:0;right:0;margin:0 auto;width:fit-content;display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeUp 1s .8s ease both}
-.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sPulse 2s ease infinite}
-.scroll-lbl{font-size:.52rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+/* ===== FIXED BACKGROUND SYSTEM ===== */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  background: #020408;
+  z-index: -2;
+  overflow: hidden;
+}
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 80%);
+  animation: gridDrift 20s linear infinite;
+}
+.bg-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(201,168,76,0.015) 3px, rgba(201,168,76,0.015) 4px);
+  pointer-events: none;
+}
+.bg-stars { position: absolute; inset: 0; }
+.bg-stars .star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle var(--dur) ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+.bg-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.3;
+  pointer-events: none;
+}
+.bg-glow {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: bgPulse 8s infinite alternate;
+}
+.bg-glow.g1 { background: radial-gradient(circle, rgba(201,168,76,0.45) 0%, rgba(201,168,76,0.1) 50%, transparent 70%); top: -10%; left: -5%; }
+.bg-glow.g2 { background: radial-gradient(circle, rgba(60,100,220,0.35) 0%, rgba(60,100,220,0.08) 50%, transparent 70%); bottom: -5%; right: -5%; animation-delay: -4s; }
+.bg-glow.g3 { background: radial-gradient(circle, rgba(160,80,200,0.3) 0%, rgba(160,80,200,0.06) 50%, transparent 70%); top: 30%; right: 5%; width: 600px; height: 600px; animation-delay: -2s; }
+.bg-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(2,4,8,0.6) 100%);
+  pointer-events: none;
+}
+#particle-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
 
-/* SECTIONS */
-.s-inner{max-width:1040px;margin:0 auto;padding:96px 60px}
-.s-tag{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px}
-.s-tag::before{content:'';width:22px;height:1px;background:var(--gold)}
-.s-title{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:600;line-height:1.1;letter-spacing:.02em;margin-bottom:16px}
-.s-sub{font-size:.78rem;line-height:2;color:var(--muted);max-width:520px}
-.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
+/* ===== CUSTOM CURSOR ===== */
+#cur { position: fixed; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); mix-blend-mode: screen; }
+#cur-ring { position: fixed; width: 28px; height: 28px; border: 1px solid rgba(201,168,76,0.45); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all .15s ease; }
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 0 60px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--nav-bg); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border2); transition: border-color .3s;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; font-family: 'Cinzel', serif; font-size: .9rem; color: var(--gold); text-decoration: none; letter-spacing: .12em; }
+.nav-logo img { width: 38px; height: 38px; object-fit: contain; filter: drop-shadow(0 0 6px rgba(201,168,76,.4)); }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted2); text-decoration: none; transition: color .2s; cursor: none; }
+.nav-links a:hover { color: var(--gold); }
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+.lang-switcher { display: flex; gap: 2px; }
+.lang-btn { padding: 5px 12px; font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: .1em; background: transparent; border: 1px solid transparent; color: var(--muted2); cursor: none; transition: all .2s; }
+.lang-btn:hover { color: var(--gold); }
+.lang-btn.active { color: var(--gold); border-color: var(--border); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 60px 80px;
+  overflow: hidden;
+}
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 760px;
+  text-align: center;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-bottom: 36px; padding: 5px 18px;
+  border: 1px solid var(--border); background: rgba(201,168,76,.04);
+  font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold);
+  animation: fadeDown 1s ease both;
+}
+.edot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+
+/* Hero Title — Elegant Cormorant Garamond */
+h1.hero-title {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  color: #fff;
+  animation: fadeUp 1s .1s ease both;
+}
+h1.hero-title > span { display: block; }
+h1.hero-title .hope {
+  font-style: italic;
+  background: linear-gradient(135deg, #fff 0%, #e8d5a3 40%, #c9a84c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(201,168,76,0.15));
+}
+
+.hero-desc {
+  font-size: .85rem; line-height: 2.1; color: var(--muted);
+  max-width: 540px; margin: 30px auto 46px;
+  animation: fadeUp 1s .2s ease both; font-weight: 300;
+}
+.ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; animation: fadeUp 1s .3s ease both; }
+.btn-g {
+  padding: 13px 36px; background: var(--gold); color: var(--on-gold);
+  font-family: 'Cinzel', serif; font-size: .75rem; letter-spacing: .12em;
+  text-decoration: none; cursor: none; font-weight: 700; position: relative;
+  overflow: hidden; transition: all .3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4); border-radius: 2px; border: none;
+}
+.btn-g::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent); transform: translateX(-100%); transition: transform .6s ease-in-out; }
+.btn-g:hover { transform: translateY(-2px); background: var(--gold2); box-shadow: 0 6px 25px rgba(201,168,76,0.4); }
+.btn-g:hover::after { transform: translateX(100%); }
+.btn-o {
+  padding: 13px 36px; background: transparent; color: var(--text);
+  font-family: 'Cinzel', serif; font-size: .75rem; letter-spacing: .12em;
+  text-decoration: none; cursor: none; border: 1px solid var(--border);
+  transition: all .2s; border-radius: 2px; font-weight: 600;
+}
+.btn-o:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Round Table Scene in Hero */
+.table-scene {
+  position: absolute;
+  width: 700px; height: 700px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+.table-surface {
+  position: absolute; inset: 50px; border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(201,168,76,0.02) 0%, rgba(201,168,76,0.08) 60%, rgba(201,168,76,0.35) 100%);
+  border: 2px solid rgba(201,168,76,0.25);
+  box-shadow: 0 0 120px rgba(201,168,76,0.2), inset 0 0 60px rgba(201,168,76,0.1);
+  backdrop-filter: blur(6px);
+}
+.table-surface::after {
+  content: ''; position: absolute; inset: -15px; border-radius: 50%;
+  border: 1px dashed rgba(201,168,76,0.15);
+  animation: spinOrbit 40s linear infinite;
+}
+.core {
+  position: absolute; top: 50%; left: 50%; width: 140px; height: 140px;
+  background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, var(--gold-bright) 20%, var(--gold) 50%, transparent 75%);
+  border-radius: 50%; transform: translate(-50%, -50%);
+  filter: blur(25px); box-shadow: 0 0 80px var(--gold);
+  animation: corePulse 4s infinite ease-in-out;
+}
+.seat {
+  position: absolute; width: 36px; height: 48px;
+  background: linear-gradient(to top, #0a0c14, #151820);
+  border: 1.5px solid rgba(201,168,76,0.4);
+  border-bottom: 3px solid var(--gold-deep);
+  border-radius: 5px; top: 50%; left: 50%; margin: -24px -18px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.8), 0 0 10px rgba(201,168,76,0.08);
+}
+.seat-glow {
+  position: absolute; inset: -15px;
+  background: radial-gradient(circle, rgba(201,168,76,0.4) 0%, transparent 70%);
+  filter: blur(6px); opacity: 0;
+}
+.orbit {
+  position: absolute; border-radius: 50%; border: 1px solid rgba(201,168,76,0.06);
+  top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
+}
+.orb-1 { width: 850px; height: 850px; border-style: dotted; animation: spinOrbit 120s linear infinite; }
+.orb-2 { width: 1100px; height: 1100px; opacity: 0.3; animation: spinOrbit 180s linear infinite reverse; }
+
+.scroll-h { position: absolute; bottom: 40px; left: 0; right: 0; margin: 0 auto; width: fit-content; display: flex; flex-direction: column; align-items: center; gap: 8px; animation: fadeUp 1s .8s ease both; z-index: 10; }
+.scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, var(--gold), transparent); animation: sPulse 2s ease infinite; }
+.scroll-lbl { font-size: .58rem; letter-spacing: .2em; color: var(--muted2); text-transform: uppercase; }
+
+/* ===== SECTIONS ===== */
+.s-inner { max-width: 1040px; margin: 0 auto; padding: 96px 60px; position: relative; z-index: 2; }
+.s-tag { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.s-tag::before { content: ''; width: 22px; height: 1px; background: var(--gold); }
+.s-title { font-family: 'Cinzel', serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 600; line-height: 1.1; letter-spacing: .02em; margin-bottom: 16px; }
+.s-sub { font-size: .78rem; line-height: 2; color: var(--muted); max-width: 520px; }
+.divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border2), transparent); position: relative; z-index: 2; opacity: 0.4; }
 
 /* ABOUT */
-.about{background:var(--bg2)}
-.about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:72px;align-items:center;margin-top:56px}
-.kv{position:relative;height:300px;display:flex;align-items:center;justify-content:center}
-.kvr{position:absolute;border-radius:50%;border:1px solid var(--border);top:50%;left:50%}
-.kvr1{width:90px;height:90px;animation:spinC 12s linear infinite;transform:translate(-50%,-50%)}
-.kvr2{width:172px;height:172px;animation:spinC 20s linear infinite reverse;transform:translate(-50%,-50%)}
-.kvr3{width:262px;height:262px;animation:spinC 30s linear infinite;border-style:dashed;transform:translate(-50%,-50%)}
-.kvd{position:absolute;width:6px;height:6px;border-radius:50%;top:-3px;left:50%;transform:translateX(-50%)}
-.kvr1 .kvd{background:var(--gold);box-shadow:0 0 10px var(--gold)}
-.kvr2 .kvd{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
-.kvr3 .kvd{background:#a78bfa;box-shadow:0 0 8px #a78bfa}
-.kvc{position:relative;z-index:2;width:86px;height:86px;display:flex;align-items:center;justify-content:center}
-.kvc img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 6px rgba(201,168,76,.35));image-rendering:auto}
-.about-text p{font-size:.78rem;line-height:2.1;color:var(--muted);margin-bottom:16px}
-.about-text p strong{color:var(--text)}
-.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.pill{padding:4px 13px;border:1px solid var(--border2);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:all .2s}
-.pill:hover{border-color:var(--gold);color:var(--gold)}
+.about { position: relative; z-index: 2; }
+.about::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(8,11,20,0.7) 8%, rgba(8,11,20,0.85) 20%, rgba(8,11,20,0.85) 80%, rgba(8,11,20,0.7) 92%, transparent 100%); pointer-events: none; z-index: -1; }
+.about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 72px; align-items: center; margin-top: 56px; }
+.kv { position: relative; height: 400px; display: flex; align-items: center; justify-content: center; }
+.kvr { position: absolute; border-radius: 50%; border: 1px solid var(--border); top: 50%; left: 50%; }
+.kvr1 { width: 130px; height: 130px; animation: spinC 12s linear infinite; transform: translate(-50%,-50%); }
+.kvr2 { width: 230px; height: 230px; animation: spinC 20s linear infinite reverse; transform: translate(-50%,-50%); }
+.kvr3 { width: 340px; height: 340px; animation: spinC 30s linear infinite; border-style: dashed; transform: translate(-50%,-50%); }
+.kvd { position: absolute; width: 8px; height: 8px; border-radius: 50%; top: -4px; left: 50%; transform: translateX(-50%); }
+.kvr1 .kvd { background: var(--gold); box-shadow: 0 0 12px var(--gold); }
+.kvr2 .kvd { background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+.kvr3 .kvd { background: #a78bfa; box-shadow: 0 0 10px #a78bfa; }
+.kvc { position: relative; z-index: 2; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; }
+.kvc img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 8px rgba(201,168,76,.4)); }
+.about-text p { font-size: .78rem; line-height: 2.1; color: var(--muted); margin-bottom: 16px; }
+.about-text p strong { color: var(--text); }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.pill { padding: 4px 13px; border: 1px solid var(--border2); font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted2); transition: all .2s; }
+.pill:hover { border-color: var(--gold); color: var(--gold); }
 
 /* NOW */
-.now-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:24px}
-.now-live{display:flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid rgba(74,222,128,.25);background:rgba(74,222,128,.05);font-size:.6rem;letter-spacing:.12em;color:#4ade80;align-self:flex-start}
-.ldot{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
-.now-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2)}
-.nc{background:var(--bg);padding:34px 28px;position:relative;overflow:hidden;transition:background .3s}
-.nc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.nc:hover::before{transform:scaleX(1)}
-.nc:hover{background:rgba(201,168,76,.02)}
-.nc-num{font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:var(--border2);margin-bottom:14px;line-height:1}
-.nc-title{font-family:'Cinzel',serif;font-size:.88rem;font-weight:600;margin-bottom:10px;color:var(--text)}
-.nc-desc{font-size:.72rem;line-height:1.9;color:var(--muted)}
-.nc-tag{display:inline-block;margin-top:16px;padding:3px 10px;border:1px solid var(--border);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.now-section { position: relative; z-index: 2; }
+.now-section::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(4,5,8,0.6) 10%, rgba(4,5,8,0.75) 25%, rgba(4,5,8,0.75) 75%, rgba(4,5,8,0.6) 90%, transparent 100%); pointer-events: none; z-index: -1; }
+.now-hdr { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 52px; flex-wrap: wrap; gap: 24px; }
+.now-live { display: flex; align-items: center; gap: 8px; padding: 6px 16px; border: 1px solid rgba(74,222,128,.25); background: rgba(74,222,128,.05); font-size: .6rem; letter-spacing: .12em; color: #4ade80; align-self: flex-start; }
+.ldot { width: 5px; height: 5px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; }
+.now-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--border2); border: 1px solid var(--border2); }
+.nc { background: rgba(4,5,8,0.6); padding: 34px 28px; position: relative; overflow: hidden; transition: background .3s; backdrop-filter: blur(4px); }
+.nc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); transform: scaleX(0); transform-origin: left; transition: transform .4s; }
+.nc:hover::before { transform: scaleX(1); }
+.nc:hover { background: rgba(201,168,76,.02); }
+.nc-num { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 700; color: var(--border2); margin-bottom: 14px; line-height: 1; }
+.nc-title { font-family: 'Cinzel', serif; font-size: .88rem; font-weight: 600; margin-bottom: 10px; color: var(--text); }
+.nc-desc { font-size: .72rem; line-height: 1.9; color: var(--muted); }
+.nc-tag { display: inline-block; margin-top: 16px; padding: 3px 10px; border: 1px solid var(--border); font-size: .55rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
 
 /* PROJECTS */
-.projects{background:var(--bg2)}
-.proj-list{margin-top:52px;display:flex;flex-direction:column;gap:1px;background:var(--border2);border:1px solid var(--border2)}
-.pi{background:var(--bg2);padding:28px 32px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;transition:all .25s;text-decoration:none;color:var(--text);cursor:none}
-.pi:hover{background:rgba(201,168,76,.03);padding-left:44px}
-.pi-name{font-family:'Cinzel',serif;font-size:.9rem;font-weight:600;margin-bottom:7px}
-.pi-desc{font-size:.72rem;line-height:1.85;color:var(--muted)}
-.pi-meta{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;align-items:center}
-.pi-lang{padding:2px 9px;border:1px solid var(--border2);font-size:.55rem;letter-spacing:.1em;color:var(--muted)}
-.pi-arr{color:var(--gold);opacity:0;transition:opacity .2s;font-size:1rem}
-.pi:hover .pi-arr{opacity:1}
+.projects { position: relative; z-index: 2; }
+.projects::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(8,11,20,0.7) 8%, rgba(8,11,20,0.85) 20%, rgba(8,11,20,0.85) 80%, rgba(8,11,20,0.7) 92%, transparent 100%); pointer-events: none; z-index: -1; }
+.proj-list { margin-top: 52px; display: flex; flex-direction: column; gap: 1px; background: var(--border2); border: 1px solid var(--border2); }
+.pi { background: rgba(8,11,20,0.6); padding: 28px 32px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; transition: all .25s; text-decoration: none; color: var(--text); cursor: none; backdrop-filter: blur(4px); }
+.pi:hover { background: rgba(201,168,76,.03); padding-left: 44px; }
+.pi-name { font-family: 'Cinzel', serif; font-size: .9rem; font-weight: 600; margin-bottom: 7px; }
+.pi-desc { font-size: .72rem; line-height: 1.85; color: var(--muted); }
+.pi-meta { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; align-items: center; }
+.pi-lang { padding: 2px 9px; border: 1px solid var(--border2); font-size: .55rem; letter-spacing: .1em; color: var(--muted2); }
+.pi-arr { color: var(--gold); opacity: 0; transition: opacity .2s; font-size: 1rem; }
+.pi:hover .pi-arr { opacity: 1; }
 
-/* ARSENAL SECTIONS */
-.proj-section{margin-top:48px}
-.proj-sec-title{font-family:'Cinzel',serif;font-size:.78rem;font-weight:600;color:var(--text);letter-spacing:.06em;margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.proj-sec-title::before{content:'◆';color:var(--gold);font-size:.5rem}
-.arsenal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2)}
-.at-card{background:var(--bg);padding:22px 14px;text-align:center;transition:all .2s;cursor:none}
-.at-card:hover{background:rgba(201,168,76,.03)}
-.at-card-name{font-family:'Cinzel',serif;font-size:.74rem;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.3}
-.at-card-tag{font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.4}
-.at-featured{background:rgba(201,168,76,.04)}
-.at-featured .at-card-name{color:var(--gold)}
-.at-explore .at-card-name{color:var(--muted);font-style:italic}
+.proj-section { margin-top: 48px; }
+.proj-sec-title { font-family: 'Cinzel', serif; font-size: .78rem; font-weight: 600; color: var(--text); letter-spacing: .06em; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.proj-sec-title::before { content: '◆'; color: var(--gold); font-size: .55rem; }
+.arsenal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border2); border: 1px solid var(--border2); }
+.at-card { background: rgba(4,5,8,0.6); padding: 22px 14px; text-align: center; transition: all .2s; cursor: none; backdrop-filter: blur(4px); }
+.at-card:hover { background: rgba(201,168,76,.03); }
+.at-card-name { font-family: 'Cinzel', serif; font-size: .74rem; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
+.at-card-tag { font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted2); line-height: 1.4; }
+.at-explore .at-card-name { color: var(--muted); font-style: italic; }
 
-/* OPENCLAW TREE */
-.oc-tree{display:flex;flex-direction:column;align-items:center;padding:32px 0 8px}
-.oc-card{padding:12px 24px;border:1px solid var(--border);text-align:center;background:rgba(201,168,76,.04)}
-.oc-card-name{font-family:'Cinzel',serif;font-size:.78rem;font-weight:600;color:var(--gold)}
-.oc-card-role{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px}
-.oc-vline{width:1px;height:24px;background:var(--border)}
-.oc-branch{display:flex;position:relative;width:100%;max-width:820px}
-.oc-branch::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:var(--border)}
-.oc-knight{flex:1;display:flex;flex-direction:column;align-items:center;padding:0 6px}
-.oc-kvline{width:1px;height:20px;background:var(--border)}
-.oc-knight .oc-card{padding:10px 8px;border-color:var(--border2);background:rgba(201,168,76,.02)}
-.oc-knight .oc-card-name{font-size:.68rem;color:var(--text)}
-.oc-knight .oc-card-role{font-size:.48rem;letter-spacing:.08em}
+/* OpenClaw Tree */
+.oc-tree { display: flex; flex-direction: column; align-items: center; padding: 32px 0 8px; }
+.oc-card { padding: 12px 24px; border: 1px solid var(--border); text-align: center; background: rgba(201,168,76,.04); }
+.oc-card-name { font-family: 'Cinzel', serif; font-size: .78rem; font-weight: 600; color: var(--gold); }
+.oc-card-role { font-size: .55rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted2); margin-top: 3px; }
+.oc-vline { width: 1px; height: 24px; background: var(--border); }
+.oc-branch { display: flex; position: relative; width: 100%; max-width: 820px; }
+.oc-branch::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: var(--border); }
+.oc-knight { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 0 6px; }
+.oc-kvline { width: 1px; height: 20px; background: var(--border); }
+.oc-knight .oc-card { padding: 10px 8px; border-color: var(--border2); background: rgba(201,168,76,.02); }
+.oc-knight .oc-card-name { font-size: .74rem; color: var(--text); }
+.oc-knight .oc-card-role { font-size: .56rem; letter-spacing: .08em; }
 
 /* WRITING */
-.wl{margin-top:52px}
-.wi{padding:26px 0;border-bottom:1px solid var(--border2);display:grid;grid-template-columns:88px 1fr auto;gap:24px;align-items:start;transition:padding-left .2s;color:var(--text)}
-.wi:first-child{border-top:1px solid var(--border2)}
-.wi:hover{padding-left:12px}
-.w-main{text-decoration:none;color:var(--text);cursor:none;display:block}
-.w-date{font-size:.62rem;color:var(--gold);padding-top:3px;white-space:nowrap}
-.w-title{font-family:'Cinzel',serif;font-size:.87rem;font-weight:600;margin-bottom:6px}
-.w-sub{font-size:.7rem;line-height:1.75;color:var(--muted)}
-.w-plat-links{display:flex;gap:10px;align-items:center;padding-top:3px;white-space:nowrap}
-.w-plat-link{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-decoration:none;cursor:none;opacity:.9;transition:opacity .2s,color .2s}
-.w-plat-link + .w-plat-link::before{content:'|';color:var(--border);margin-right:10px}
-.w-plat-link:hover{opacity:1;color:var(--gold)}
+.writing-section { position: relative; z-index: 2; }
+.writing-section::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(4,5,8,0.6) 10%, rgba(4,5,8,0.75) 25%, rgba(4,5,8,0.75) 75%, rgba(4,5,8,0.6) 90%, transparent 100%); pointer-events: none; z-index: -1; }
+.wl { margin-top: 52px; }
+.wi { padding: 26px 0; border-bottom: 1px solid var(--border2); display: grid; grid-template-columns: 88px 1fr auto; gap: 24px; align-items: start; transition: padding-left .2s; color: var(--text); }
+.wi:first-child { border-top: 1px solid var(--border2); }
+.wi:hover { padding-left: 12px; }
+.w-main { text-decoration: none; color: var(--text); cursor: none; display: block; }
+.w-date { font-size: .62rem; color: var(--gold); padding-top: 3px; white-space: nowrap; }
+.w-title { font-family: 'Cinzel', serif; font-size: .87rem; font-weight: 600; margin-bottom: 6px; }
+.w-sub { font-size: .7rem; line-height: 1.75; color: var(--muted); }
+.w-plat-links { display: flex; gap: 10px; align-items: center; padding-top: 3px; white-space: nowrap; }
+.w-plat-link { font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); text-decoration: none; cursor: none; opacity: .9; transition: opacity .2s, color .2s; }
+.w-plat-link + .w-plat-link::before { content: '|'; color: var(--border); margin-right: 10px; }
+.w-plat-link:hover { opacity: 1; color: var(--gold); }
 
 /* CONTACT */
-.contact{background:var(--bg2)}
-.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:52px}
-.ct-links{display:flex;flex-direction:column;gap:10px;margin-top:0}
-.cl{display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px solid var(--border);background:rgba(201,168,76,.06);text-decoration:none;color:var(--text);transition:all .2s;cursor:none;font-size:.72rem}
-.cl:hover{border-color:var(--border);background:rgba(201,168,76,.1);color:var(--gold);padding-left:28px}
-.cl-icon{width:32px;height:32px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .2s}
-.cl:hover .cl-icon{border-color:var(--gold)}
-.cl-handle{margin-left:auto;font-size:.6rem;opacity:.6}
-.ct-note{font-size:.75rem;line-height:2.1;color:var(--muted)}
-.ct-note strong{color:var(--text)}
-.knames{margin-top:32px;padding:20px 24px;border:1px solid var(--border2);background:rgba(201,168,76,.02)}
-.knames-t{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.kname-list{display:flex;flex-wrap:wrap;gap:8px}
-.kname{padding:3px 12px;border:1px solid var(--border2);font-size:.6rem;letter-spacing:.08em;color:var(--muted)}
-.kname-group{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
-.kname-group:last-child{margin-bottom:0}
-.kname-role{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:.7;white-space:nowrap;margin-right:4px}
+.contact { position: relative; z-index: 2; }
+.contact::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(8,11,20,0.7) 8%, rgba(8,11,20,0.85) 20%, rgba(8,11,20,0.85) 80%, rgba(8,11,20,0.7) 92%, transparent 100%); pointer-events: none; z-index: -1; }
+.ct-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 52px; }
+.ct-links { display: flex; flex-direction: column; gap: 10px; }
+.cl { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border: 1px solid var(--border); background: rgba(201,168,76,.06); text-decoration: none; color: var(--text); transition: all .2s; cursor: none; font-size: .72rem; }
+.cl:hover { background: rgba(201,168,76,.1); color: var(--gold); padding-left: 28px; }
+.cl-icon { width: 32px; height: 32px; border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: border-color .2s; }
+.cl:hover .cl-icon { border-color: var(--gold); }
+.cl-handle { margin-left: auto; font-size: .6rem; opacity: .8; }
+.ct-note { font-size: .75rem; line-height: 2.1; color: var(--muted); }
+.ct-note strong { color: var(--text); }
+.knames { margin-top: 32px; padding: 20px 24px; border: 1px solid var(--border2); background: rgba(201,168,76,.02); }
+.knames-t { font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.kname-group { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; }
+.kname-group:last-child { margin-bottom: 0; }
+.kname-role { font-size: .55rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); opacity: .7; white-space: nowrap; margin-right: 4px; }
+.kname { padding: 3px 12px; border: 1px solid var(--border2); font-size: .6rem; letter-spacing: .08em; color: var(--muted2); }
 
 /* FOOTER */
-footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.f-logo{display:flex;align-items:center;gap:12px;font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);letter-spacing:.12em}
-.f-logo img{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(201,168,76,.4))}
-.f-slogan{font-size:.58rem;color:var(--muted);letter-spacing:.14em;font-style:italic}
-.f-copy{font-size:.58rem;color:var(--muted)}
+footer { padding: 36px 60px; border-top: 1px solid var(--border2); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; position: relative; z-index: 2; }
+footer::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(4,5,8,0.85) 30%, rgba(4,5,8,0.9) 100%); pointer-events: none; z-index: -1; }
+.f-logo { display: flex; align-items: center; gap: 12px; font-family: 'Cinzel', serif; font-size: .8rem; color: var(--gold); letter-spacing: .12em; }
+.f-logo img { width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 0 6px rgba(201,168,76,.4)); }
+.f-slogan { font-size: .58rem; color: var(--muted2); letter-spacing: .14em; font-style: italic; }
+.f-copy { font-size: .58rem; color: var(--muted2); }
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.reveal.vis{opacity:1;transform:translateY(0)}
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.vis { opacity: 1; transform: translateY(0); }
 
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
-@keyframes spinC{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-@keyframes sPulse{0%,100%{opacity:.6}50%{opacity:1}}
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes spinC { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+@keyframes sPulse { 0%,100% { opacity: .6; } 50% { opacity: 1; } }
+@keyframes bgPulse { 0% { opacity: 0.7; transform: scale(1); } 100% { opacity: 1; transform: scale(1.15); } }
+@keyframes gridDrift { from { background-position: 0 0; } to { background-position: 60px 60px; } }
+@keyframes twinkle { 0% { opacity: 0.05; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.3); } 100% { opacity: 0.1; transform: scale(0.9); } }
+@keyframes spinOrbit { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
+@keyframes corePulse { 0%,100% { transform: translate(-50%,-50%) scale(1); filter: blur(25px); opacity: 0.7; } 50% { transform: translate(-50%,-50%) scale(1.1); filter: blur(30px); opacity: 1; } }
 
-/* MOBILE */
-@media(max-width:768px){
-  .nav{padding:8px 12px;height:auto;min-height:56px;align-items:flex-start}
-  .nav-links{display:none}
-  .nav-logo{gap:8px;font-size:.62rem;letter-spacing:.08em;min-width:0}
-  .nav-logo img{width:28px;height:28px}
-  .nav-actions{gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:62%}
-  .nav-actions > *{flex-shrink:0}
-  .theme-btn{width:50px;height:24px}
-  .theme-sun{left:11px}
-  .theme-moon{left:37px}
-  .theme-thumb{width:18px;height:18px}
-  .theme-btn[data-theme-state='dark'] .theme-thumb{transform:translateX(26px)}
-  .lang-switcher{gap:1px;flex-wrap:wrap;justify-content:flex-end}
-  .lang-btn{padding:3px 7px;font-size:.55rem;letter-spacing:.06em}
-  .hero{padding:90px 24px 70px}
-  .s-inner{padding:72px 24px}
-  .about-grid,.ct-grid{grid-template-columns:1fr;gap:40px}
-  .kv{height:200px}
-  .now-grid{grid-template-columns:1fr}
-  .pi{grid-template-columns:1fr}
-  .pi-arr{display:none}
-  .wi{grid-template-columns:1fr;gap:8px}
-  .w-date{padding-top:0}
-  .w-plat-links{display:flex;gap:8px;padding-top:2px;white-space:normal;flex-wrap:wrap}
-  .w-plat-link{font-size:.56rem}
-  footer{flex-direction:column;text-align:center;padding:28px 24px}
-  .arsenal-grid{grid-template-columns:repeat(2,1fr)}
-  .at-card{padding:16px 10px}
-  .at-card-name{font-size:.66rem}
-  .oc-tree{padding:24px 0 8px}
-  .oc-card{padding:10px 16px}
-  .oc-branch{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-  .oc-branch::before{display:none}
-  .oc-kvline{display:none}
-  .oc-knight{padding:0}
-  .oc-knight .oc-card{width:100%;border-top:2px solid var(--border)}
+/* ===== MOBILE ===== */
+@media(max-width:768px) {
+  html { font-size: 16px; }
+  #cur, #cur-ring { display: none; }
+  body { cursor: auto; }
+  .nav { padding: 10px 16px; height: auto; min-height: 52px; align-items: center; }
+  .nav-links { display: none; }
+  .nav-logo { gap: 8px; font-size: .72rem; letter-spacing: .08em; min-width: 0; }
+  .nav-logo img { width: 30px; height: 30px; }
+  .nav-actions { gap: 4px; flex-shrink: 0; }
+  .lang-switcher { gap: 1px; }
+  .lang-btn { padding: 4px 8px; font-size: .6rem; letter-spacing: .06em; }
+  .hero { padding: 80px 20px 60px; min-height: 100svh; }
+  h1.hero-title { font-size: clamp(2.2rem, 8vw, 3.2rem); }
+  .hero-desc { font-size: .82rem; margin: 20px auto 36px; max-width: 100%; }
+  .eyebrow { font-size: .55rem; padding: 4px 14px; margin-bottom: 24px; }
+  .ctas { flex-direction: column; align-items: center; gap: 10px; }
+  .btn-g, .btn-o { width: 100%; max-width: 280px; text-align: center; padding: 14px 20px; }
+  .table-scene { width: 360px; height: 360px; }
+  .scroll-h { bottom: 24px; }
+  .s-inner { padding: 64px 20px; }
+  .s-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .kv { height: 260px; }
+  .kvr1 { width: 90px; height: 90px; }
+  .kvr2 { width: 160px; height: 160px; }
+  .kvr3 { width: 240px; height: 240px; }
+  .kvc { width: 80px; height: 80px; }
+  .about-text p { font-size: .78rem; }
+  .now-hdr { flex-direction: column; gap: 16px; }
+  .now-grid { grid-template-columns: 1fr; }
+  .nc { padding: 28px 20px; }
+  .nc-num { font-size: 1.6rem; }
+  .nc-title { font-size: .84rem; }
+  .nc-desc { font-size: .72rem; }
+  .proj-sec-title { font-size: .76rem; }
+  .arsenal-grid { grid-template-columns: repeat(2,1fr); }
+  .at-card { padding: 16px 10px; }
+  .at-card-name { font-size: .7rem; }
+  .oc-tree { padding: 24px 0 8px; }
+  .oc-card { padding: 10px 16px; }
+  .oc-branch { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+  .oc-branch::before { display: none; }
+  .oc-kvline { display: none; }
+  .oc-knight { padding: 0; }
+  .oc-knight .oc-card { width: 100%; border-top: 2px solid var(--border); }
+  .proj-list { border: none; background: none; gap: 12px; }
+  .pi { grid-template-columns: 1fr; border: 1px solid var(--border2); border-radius: 4px; }
+  .pi-arr { display: none; }
+  .wi { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
+  .w-date { padding-top: 0; font-size: .6rem; }
+  .w-title { font-size: .82rem; }
+  .w-plat-links { flex-wrap: wrap; gap: 8px; padding-top: 4px; white-space: normal; }
+  .ct-grid { grid-template-columns: 1fr; gap: 40px; }
+  .ct-note { font-size: .76rem; }
+  .cl { padding: 14px 16px; font-size: .72rem; }
+  .cl-handle { font-size: .58rem; }
+  footer { flex-direction: column; text-align: center; padding: 28px 20px; gap: 12px; }
+  .f-logo { font-size: .76rem; }
+  .f-slogan, .f-copy { font-size: .6rem; }
 }
 </style>
 </head>
 <body>
 <div id="cur"></div>
 <div id="cur-ring"></div>
+
+<!-- FIXED BACKGROUND -->
+<div id="bg-canvas">
+  <div class="bg-grid"></div>
+  <div class="bg-scanlines"></div>
+  <div class="bg-stars"></div>
+  <div class="bg-grain"></div>
+  <div class="bg-glow g1"></div>
+  <div class="bg-glow g2"></div>
+  <div class="bg-glow g3"></div>
+  <div class="bg-vignette"></div>
+</div>
+<canvas id="particle-canvas"></canvas>
 
 <!-- NAV -->
 <nav class="nav">
@@ -278,7 +495,6 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
     <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
   </ul>
   <div class="nav-actions">
-    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()" aria-label="Switch theme"><span class="theme-sun" aria-hidden="true">☀</span><span class="theme-moon" aria-hidden="true">☾</span><span class="theme-thumb" aria-hidden="true"></span></button>
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('zh')">中文</button>
@@ -290,14 +506,18 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="tring tr1"><div class="rseat"></div></div>
-  <div class="tring tr2"><div class="rseat"></div></div>
-  <div class="tring tr3"><div class="rseat"></div></div>
+  <!-- Round Table Background -->
+  <div class="table-scene">
+    <div class="table-surface"></div>
+    <div class="core"></div>
+    <div class="orbit orb-1"></div>
+    <div class="orbit orb-2"></div>
+    <div id="seats-container"></div>
+  </div>
+  <!-- Content -->
   <div class="hero-content">
     <div class="eyebrow"><span class="edot"></span><span data-i18n="hero_eyebrow">RoundTable AI Lab · Independent Research</span></div>
-    <h1><span data-i18n="hero_t1">Every Seat.</span><span data-i18n="hero_t2">Every Idea.</span><span class="hope" data-i18n="hero_t3">For What Comes Next.</span></h1>
+    <h1 class="hero-title"><span data-i18n="hero_t1">Every Seat.</span><span data-i18n="hero_t2">Every Idea.</span><span class="hope" data-i18n="hero_t3">For What Comes Next.</span></h1>
     <p class="hero-desc" data-i18n="hero_desc">AI tools research, honest market insights, and personal perspectives on where AI is really going — open to all, where every way of thinking deserves a seat.</p>
     <div class="ctas">
       <a href="#now" class="btn-g" data-i18n="hero_cta1">What I'm Building</a>
@@ -340,7 +560,7 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
 <div class="divider"></div>
 
 <!-- NOW -->
-<section id="now">
+<section class="now-section" id="now">
   <div class="s-inner">
     <div class="now-hdr">
       <div>
@@ -367,91 +587,35 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
     <h2 class="s-title" data-i18n="proj_title">Toolkit & Builds</h2>
     <p class="s-sub" data-i18n="proj_sub">Mastering five AI agent tools and building with vibe coding — my arsenal for what comes next.</p>
 
-    <!-- AI Agent Tools -->
     <div class="proj-section">
       <h3 class="proj-sec-title" data-i18n="proj_agents_title">AI Agent Tools</h3>
       <div class="arsenal-grid reveal">
-        <div class="at-card">
-          <div class="at-card-name">OpenClaw</div>
-          <div class="at-card-tag" data-i18n="at_oc_tag">Open Source Project</div>
-        </div>
-        <div class="at-card">
-          <div class="at-card-name">VS Code + GitHub Copilot</div>
-          <div class="at-card-tag" data-i18n="at_cop_tag">AI IDE</div>
-        </div>
-        <div class="at-card">
-          <div class="at-card-name">Claude</div>
-          <div class="at-card-tag" data-i18n="at_claude_tag">Autonomous AI Agent</div>
-        </div>
-        <div class="at-card">
-          <div class="at-card-name">Codex</div>
-          <div class="at-card-tag" data-i18n="at_codex_tag">Autonomous AI Agent</div>
-        </div>
-        <div class="at-card">
-          <div class="at-card-name">Antigravity</div>
-          <div class="at-card-tag" data-i18n="at_ag_tag">Autonomous AI Agent</div>
-        </div>
-        <div class="at-card at-explore">
-          <div class="at-card-name" data-i18n="at_next_name">Exploring the Next...</div>
-          <div class="at-card-tag" data-i18n="at_next_tag">To Be Continued</div>
-        </div>
+        <div class="at-card"><div class="at-card-name">OpenClaw</div><div class="at-card-tag" data-i18n="at_oc_tag">Open Source Project</div></div>
+        <div class="at-card"><div class="at-card-name">VS Code + GitHub Copilot</div><div class="at-card-tag" data-i18n="at_cop_tag">AI IDE</div></div>
+        <div class="at-card"><div class="at-card-name">Claude</div><div class="at-card-tag" data-i18n="at_claude_tag">Autonomous AI Agent</div></div>
+        <div class="at-card"><div class="at-card-name">Codex</div><div class="at-card-tag" data-i18n="at_codex_tag">Autonomous AI Agent</div></div>
+        <div class="at-card"><div class="at-card-name">Antigravity</div><div class="at-card-tag" data-i18n="at_ag_tag">Autonomous AI Agent</div></div>
+        <div class="at-card at-explore"><div class="at-card-name" data-i18n="at_next_name">Exploring the Next...</div><div class="at-card-tag" data-i18n="at_next_tag">To Be Continued</div></div>
       </div>
     </div>
 
-    <!-- OpenClaw Structure -->
     <div class="proj-section">
       <h3 class="proj-sec-title" data-i18n="proj_oc_title">OpenClaw · RoundTable</h3>
       <div class="oc-tree reveal">
-        <div class="oc-card">
-          <div class="oc-card-name" data-i18n="oc_master">The Master</div>
-        </div>
+        <div class="oc-card"><div class="oc-card-name" data-i18n="oc_master">The Master</div></div>
         <div class="oc-vline"></div>
-        <div class="oc-card">
-          <div class="oc-card-name">King Arthur</div>
-          <div class="oc-card-role" data-i18n="oc_orchestrator">Orchestrator</div>
-        </div>
+        <div class="oc-card"><div class="oc-card-name">King Arthur</div><div class="oc-card-role" data-i18n="oc_orchestrator">Orchestrator</div></div>
         <div class="oc-vline"></div>
         <div class="oc-branch">
-          <div class="oc-knight">
-            <div class="oc-kvline"></div>
-            <div class="oc-card">
-              <div class="oc-card-name">Lancelot</div>
-              <div class="oc-card-role" data-i18n="oc_lancelot">SNS Operations</div>
-            </div>
-          </div>
-          <div class="oc-knight">
-            <div class="oc-kvline"></div>
-            <div class="oc-card">
-              <div class="oc-card-name">Gawain</div>
-              <div class="oc-card-role" data-i18n="oc_gawain">System Maintenance</div>
-            </div>
-          </div>
-          <div class="oc-knight">
-            <div class="oc-kvline"></div>
-            <div class="oc-card">
-              <div class="oc-card-name">Galahad</div>
-              <div class="oc-card-role" data-i18n="oc_galahad">Intelligence Gathering</div>
-            </div>
-          </div>
-          <div class="oc-knight">
-            <div class="oc-kvline"></div>
-            <div class="oc-card">
-              <div class="oc-card-name">Bedivere</div>
-              <div class="oc-card-role" data-i18n="oc_bedivere">Content Editing</div>
-            </div>
-          </div>
-          <div class="oc-knight">
-            <div class="oc-kvline"></div>
-            <div class="oc-card">
-              <div class="oc-card-name">Tristan</div>
-              <div class="oc-card-role" data-i18n="oc_tristan">Media Production</div>
-            </div>
-          </div>
+          <div class="oc-knight"><div class="oc-kvline"></div><div class="oc-card"><div class="oc-card-name">Lancelot</div><div class="oc-card-role" data-i18n="oc_lancelot">SNS Operations</div></div></div>
+          <div class="oc-knight"><div class="oc-kvline"></div><div class="oc-card"><div class="oc-card-name">Gawain</div><div class="oc-card-role" data-i18n="oc_gawain">System Maintenance</div></div></div>
+          <div class="oc-knight"><div class="oc-kvline"></div><div class="oc-card"><div class="oc-card-name">Galahad</div><div class="oc-card-role" data-i18n="oc_galahad">Intelligence Gathering</div></div></div>
+          <div class="oc-knight"><div class="oc-kvline"></div><div class="oc-card"><div class="oc-card-name">Bedivere</div><div class="oc-card-role" data-i18n="oc_bedivere">Content Editing</div></div></div>
+          <div class="oc-knight"><div class="oc-kvline"></div><div class="oc-card"><div class="oc-card-name">Tristan</div><div class="oc-card-role" data-i18n="oc_tristan">Media Production</div></div></div>
         </div>
       </div>
     </div>
 
-    <!-- Vibe Coding -->
     <div class="proj-section">
       <h3 class="proj-sec-title" data-i18n="proj_vibe_title">Vibe Coding</h3>
       <div class="proj-list reveal">
@@ -467,7 +631,7 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
 <div class="divider"></div>
 
 <!-- WRITING -->
-<section id="writing">
+<section class="writing-section" id="writing">
   <div class="s-inner">
     <p class="s-tag" data-i18n="write_tag">The Dispatch</p>
     <h2 class="s-title" data-i18n="write_title">Writing & Insights</h2>
@@ -486,7 +650,6 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
     <div class="ct-grid reveal">
       <div>
         <p class="ct-note" data-i18n="ct_note">The round table has room for everyone — <strong>developers, business professionals, researchers, and entrepreneurs</strong>. If you're curious about AI tools, building something interesting, or just want to exchange honest perspectives, reach out.</p>
-
       </div>
       <div class="ct-links">
         <a href="mailto:contact@roundtableailab.org" class="cl">
@@ -522,7 +685,127 @@ footer{padding:36px 60px;border-top:1px solid var(--border2);display:flex;align-
 </footer>
 
 <script>
-const THEME_KEY='rt-theme';
+// ===== CURSOR =====
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function curLoop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(curLoop)})();
+
+// ===== SCROLL REVEAL =====
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ===== NAV SCROLL =====
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.borderBottomColor=window.scrollY>30?'rgba(201,168,76,.16)':'rgba(201,168,76,.08)'});
+
+// ===== ROUND TABLE SEATS =====
+(function buildSeats(){
+  const container=document.getElementById('seats-container');
+  const totalSeats=12, radius=290;
+  for(let i=0;i<totalSeats;i++){
+    const angle=(i/totalSeats)*(Math.PI*2);
+    const x=Math.cos(angle)*radius;
+    const y=Math.sin(angle)*radius;
+    const wrapper=document.createElement('div');
+    wrapper.style.cssText=`position:absolute;left:calc(50% + ${x}px);top:calc(50% + ${y}px);transform:rotate(${angle+Math.PI/2}rad)`;
+    const seat=document.createElement('div');
+    seat.className='seat';
+    const glow=document.createElement('div');
+    glow.className='seat-glow';
+    seat.appendChild(glow);
+    wrapper.appendChild(seat);
+    container.appendChild(wrapper);
+  }
+})();
+
+// ===== STAR FIELD =====
+(function buildStars(){
+  const starsContainer=document.querySelector('.bg-stars');
+  for(let i=0;i<80;i++){
+    const star=document.createElement('div');
+    star.className='star';
+    const size=Math.random()*2+1;
+    star.style.width=size+'px';
+    star.style.height=size+'px';
+    star.style.left=Math.random()*100+'%';
+    star.style.top=Math.random()*100+'%';
+    star.style.setProperty('--dur',(1.5+Math.random()*3)+'s');
+    star.style.setProperty('--delay',(-Math.random()*4)+'s');
+    if(Math.random()>0.65)star.style.background='rgba(201,168,76,0.9)';
+    starsContainer.appendChild(star);
+  }
+})();
+
+// ===== NEBULA MOUSE INTERACTION =====
+document.addEventListener('mousemove',e=>{
+  const glows=document.querySelectorAll('.bg-glow');
+  if(glows[0])glows[0].style.transform=`translate(${e.clientX/50}px, ${e.clientY/50}px)`;
+});
+
+// ===== PARTICLE / LIGHT DUST SYSTEM =====
+(function initParticles(){
+  const canvas=document.getElementById('particle-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H;
+  const particles=[];
+  const PARTICLE_COUNT=120;
+  let mouseX=-1000,mouseY=-1000;
+
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+  window.addEventListener('resize',resize);
+  resize();
+
+  document.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY});
+
+  class Particle{
+    constructor(){this.reset(true)}
+    reset(init){
+      this.x=Math.random()*W;
+      this.y=init?Math.random()*H:-10;
+      this.size=Math.random()*2.5+0.5;
+      this.speedX=(Math.random()-0.5)*0.3;
+      this.speedY=Math.random()*0.4+0.1;
+      this.opacity=Math.random()*0.6+0.2;
+      this.fadeDir=Math.random()>0.5?1:-1;
+      this.fadeSpeed=Math.random()*0.008+0.002;
+      const r=Math.random();
+      if(r<0.5)this.color=[201,168,76];
+      else if(r<0.8)this.color=[255,255,255];
+      else this.color=[180,160,220];
+    }
+    update(){
+      const dx=mouseX-this.x,dy=mouseY-this.y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<200&&dist>1){this.x+=dx/dist*0.3;this.y+=dy/dist*0.3}
+      this.x+=this.speedX+Math.sin(Date.now()*0.001+this.y*0.01)*0.15;
+      this.y+=this.speedY;
+      this.opacity+=this.fadeDir*this.fadeSpeed;
+      if(this.opacity>=0.8)this.fadeDir=-1;
+      if(this.opacity<=0.05)this.fadeDir=1;
+      if(this.y>H+10||this.x<-10||this.x>W+10)this.reset(false);
+    }
+    draw(){
+      const[r,g,b]=this.color;
+      ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${r},${g},${b},${this.opacity})`;ctx.fill();
+      if(this.size>1.5){
+        ctx.beginPath();ctx.arc(this.x,this.y,this.size*3,0,Math.PI*2);
+        ctx.fillStyle=`rgba(${r},${g},${b},${this.opacity*0.15})`;ctx.fill();
+      }
+    }
+  }
+
+  for(let i=0;i<PARTICLE_COUNT;i++)particles.push(new Particle());
+
+  function animate(){
+    ctx.clearRect(0,0,W,H);
+    for(const p of particles){p.update();p.draw()}
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// ===== I18N =====
 let currentLang='en';
 let writingsData=[];
 const SUPPORTED_WRITING_LANGS=['en','zh','ja','fr'];
@@ -531,106 +814,27 @@ const translationCache=new Map();
 const translationInFlight=new Set();
 const translationFailed=new Set();
 
-const THEME_TEXT={
-  en:{toLight:'Switch to light theme',toDark:'Switch to dark theme'},
-  zh:{toLight:'切换到浅色主题',toDark:'切换到深色主题'},
-  ja:{toLight:'ライトテーマに切り替え',toDark:'ダークテーマに切り替え'},
-  fr:{toLight:'Passer au theme clair',toDark:'Passer au theme sombre'}
-};
-
-function updateThemeButton(theme){
-  const btn=document.getElementById('themeBtn');
-  if(!btn)return;
-  const t=THEME_TEXT[currentLang]||THEME_TEXT.en;
-  const isLight=theme==='light';
-  btn.dataset.themeState=theme;
-  btn.setAttribute('aria-label',isLight?t.toDark:t.toLight);
-}
-
-function applyTheme(theme){
-  document.documentElement.setAttribute('data-theme',theme);
-  updateThemeButton(theme);
-  updateBrandLogos(theme);
-}
-
-function updateBrandLogos(theme){
-  const logoSrc=theme==='light'?'roundtable-logo-transparent-gold.png':'roundtable-logo-transparent.png';
-  ['navLogo','aboutLogo','footerLogo'].forEach(id=>{
-    const logo=document.getElementById(id);
-    if(logo)logo.src=logoSrc;
-  });
-}
-
-function initTheme(){
-  const saved=localStorage.getItem(THEME_KEY);
-  const prefersLight=window.matchMedia('(prefers-color-scheme: light)').matches;
-  const theme=saved||(prefersLight?'light':'dark');
-  applyTheme(theme);
-}
-
-function toggleTheme(){
-  const current=document.documentElement.getAttribute('data-theme')||'dark';
-  const next=current==='dark'?'light':'dark';
-  localStorage.setItem(THEME_KEY,next);
-  applyTheme(next);
-}
-
-initTheme();
-
-// Cursor
-const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
-
-// Scroll reveal
-const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-// Nav scroll
-window.addEventListener('scroll',()=>{document.querySelector('.nav').style.borderBottomColor=window.scrollY>30?'rgba(201,168,76,.16)':'rgba(201,168,76,.08)'});
-
-// i18n
 const T={
-en:{nav_about:'About',nav_now:'Now',nav_projects:'Toolkit',nav_writing:'Writing',nav_contact:'Contact',hero_eyebrow:'RoundTable AI Lab · Independent Research',hero_t1:'Every Seat.',hero_t2:'Every Idea.',hero_t3:'For What Comes Next.',hero_desc:"AI tools research, honest market insights, and personal perspectives on where AI is really going — open to all, where every way of thinking deserves a seat.",hero_cta1:"What I'm Building",hero_cta2:'Read the Lab',scroll:'Scroll',about_tag:'The Master',about_title:'Lijun Liu',about_p1:'Born in Shanghai, now based in Tokyo, and currently working at Microsoft. I move constantly between AI and the people who invest in it, use it, build it, and deploy it. I have also visited 14 countries and learned from different cultures.',about_p2:'<strong>I run RoundTable AI Lab as an independent space — it does not represent any company or brand position, and everything is based on my own real experience and discussed on its own merits.</strong> The round table itself has no head seat. Developers, business professionals, researchers, and entrepreneurs — no matter your field, there is a seat for you here, and your perspectives, discussion, and collaboration are welcome.',about_p3:'The name comes from the Knights of the Round Table — not because they were heroes, but because they sat as equals. That spirit runs through everything here: <strong>honest analysis, open sharing, and growing together around the same ideals.</strong>',pill1:'AI Tools Research',pill2:'Market Intelligence',pill3:'Cloud · AI',pill4:'Tokyo · Shanghai',pill5:'EN · 中文 · 日本語 · FR',now_tag:'Current Chapter',now_title:"What I'm Working On",now_live:'Live · Updated 2026',n1t:'AI Tools Research',n1d:'Systematically evaluating AI coding assistants, agents, and productivity tools — Claude Code, GitHub Copilot, and beyond. Publishing findings for practitioners at every level.',n1tag:'Ongoing',n2t:'OpenClaw · RoundTable',n2d:'Building and experimenting with the OpenClaw agent framework. Each agent in my fleet is named after a Knight of the Round Table — King Arthur is my OpenClaw RoundTable\'s Orchestrator.',n2tag:'Active Build',n3t:'Multilingual Publishing',n3d:'Writing about AI market dynamics in Chinese, Japanese, and English — breaking the language barrier so every seat at the table has a voice.',n3tag:'3 Languages',n4t:'auto-ppt-prototype',n4d:'An AI PowerPoint generation agent combining MCP, CLI, and Docker — turning research and ideas into presentation-ready slides automatically.',n4tag:'Python · MCP',proj_tag:'Arsenal',proj_title:'Toolkit & Builds',proj_sub:'Open source work and experiments. Built in the field, shared without gatekeeping.',p1d:'AI-powered PowerPoint generation agent. Give it a topic, get a deck. Built with MCP protocol, CLI interface, and Docker packaging.',write_tag:'The Dispatch',write_title:'Writing & Insights',write_sub:'Analysis, commentary, and field notes on AI tools and the market. Published in multiple languages — pick your seat.',w1t:"Amazon's 2026 AI Coding Incident: Why Senior Engineers Must Stay in the Loop",w1s:"Commentary on Amazon's policy requiring senior engineer sign-off on AI-generated code. What it means for the industry, and why human judgment still matters.",w2t:'OpenAI Codex Best Practices — Japanese Translation',w2s:"Translated and adapted OpenAI's Codex prompting guide for Japanese developers. Making frontier AI knowledge accessible across language barriers.",w3t:'AI Market Signals — @LancelotRT_AI',w3s:'Short-form takes on AI tools, market moves, and industry dynamics. Honest, neutral, multilingual. No throne, just signal.',ct_tag:'Take a Seat',ct_title:"Let's Connect",ct_note:'The round table has room for everyone — <strong>developers, business professionals, researchers, and entrepreneurs</strong>. If you\'re curious about AI tools, building something interesting, or just want to exchange honest perspectives, reach out.',ct_email_label:'Email',ct_email_handle:'contact@roundtableailab.org',kn_title:'The OpenClaw Knights',kn_king:'Knight King',kn_five:'Five Knights',f_slogan:'Every Seat. Every Idea. For What Comes Next.'},
-zh:{nav_about:'关于',nav_now:'当下',nav_projects:'武器库',nav_writing:'文章',nav_contact:'联系',hero_eyebrow:'圆桌 AI 实验室 · 独立研究',hero_t1:'每一个席位。',hero_t2:'每一个想法。',hero_t3:'为了未见的未来。',hero_desc:'AI工具研究、真实的市场洞察与个人观点——对所有人开放，每一种思考都值得被尊重。',hero_cta1:'我在做什么',hero_cta2:'阅读实验室',scroll:'向下滚动',about_tag:'圆桌主理人',about_title:'刘莉珺',about_p1:'生于上海，现居东京，就职于微软。常年穿梭在AI与投资、使用、开发、部署它的人之间。也曾访问过14个国家，了解各国文化。',about_p2:'<strong>圆桌AI实验室是我独立运营的空间——不代表公司或品牌立场，通过我自己的实际体验、就事论事。</strong> 圆桌本身没有主位。开发者、商界人士、研究员、创业者——无论你身处哪个领域，这里都有你的席位，欢迎你的观点、讨论与合作。',about_p3:'这个名字来自圆桌骑士——不是因为他们是英雄，而是因为他们平等而坐。这种精神贯穿这里的一切：<strong>诚实分析、开放分享、为了相同的理念而共同成长。</strong>',pill1:'AI工具研究',pill2:'市场洞察',pill3:'云 · AI',pill4:'东京 · 上海',pill5:'中文 · 日本語 · EN · FR',now_tag:'当下篇章',now_title:'我在做什么',now_live:'持续更新 · 2026',n1t:'AI工具研究',n1d:'系统评测AI编程助手、智能体与效率工具——Claude Code、GitHub Copilot等。发布面向各层级从业者的研究报告。',n1tag:'持续进行',n2t:'OpenClaw · RoundTable',n2d:'搭建并实验OpenClaw智能体框架。我的每个Agent都以圆桌骑士命名——亚瑟王是我 OpenClaw 圆桌的 Orchestrator。',n2tag:'积极构建',n3t:'多语言发布',n3d:'用中文、日语、英语撰写AI市场动态——打破语言壁垒，让圆桌的每个席位都有发言权。',n3tag:'三种语言',n4t:'auto-ppt-prototype',n4d:'AI驱动的PowerPoint生成Agent，结合MCP协议、命令行界面与Docker部署——将想法自动转化为演示文稿。',n4tag:'Python · MCP',proj_tag:'武器库',proj_title:'工具与构建',proj_sub:'开源作品与实验，在实战中构建，不设门槛地分享。',p1d:'AI驱动的PowerPoint生成Agent。给它一个主题，得到一个演示文稿。基于MCP协议、命令行界面和Docker打包。',write_tag:'情报站',write_title:'文章与洞察',write_sub:'AI工具与市场的分析、评论与田野笔记。多语言发布——选择你的席位。',w1t:'亚马逊2026 AI编码事件：为什么资深工程师必须坚守审核阵地',w1s:'评析亚马逊要求资深工程师审签AI生成代码的政策。这对行业意味着什么，以及为何顶层判断始终需要人类。',w2t:'OpenAI Codex最佳实践 — 日文版',w2s:'翻译并改编了OpenAI的Codex提示指南，面向日本开发者。让前沿AI知识跨越语言屏障。',w3t:'AI市场信号 — @LancelotRT_AI',w3s:'关于AI工具、市场动向与行业趋势的短评。诚实、中立、多语言。没有王座，只有信号。',ct_tag:'入席',ct_title:'保持联系',ct_note:'圆桌容得下所有人——<strong>开发者、商界人士、研究者、创业者</strong>。如果你对AI工具感到好奇、正在构建有趣的东西，或只是想交流真诚的观点，欢迎联系。',ct_email_label:'电子邮件',ct_email_handle:'contact@roundtableailab.org',kn_title:'OpenClaw 骑士团',kn_king:'骑士王',kn_five:'五位骑士',f_slogan:'每一个席位。每一个想法。为了未见的未来。'},
-ja:{nav_about:'About',nav_now:'Now',nav_projects:'武器庫',nav_writing:'発信',nav_contact:'連絡',hero_eyebrow:'ラウンドテーブル AI Lab · 独立研究',hero_t1:'すべての席。',hero_t2:'すべてのアイデア。',hero_t3:'その先のために。',hero_desc:'AIツールの研究、正直な市場インサイト、個人的な視点——誰にでも開かれ、あらゆる思考が等しく尊重される場所。',hero_cta1:'今作っているもの',hero_cta2:'ラボを読む',scroll:'スクロール',about_tag:'マスター',about_title:'リュウ　リクン',about_p1:'上海生まれ、現在は東京在住で、Microsoftに勤務しています。私は長年、AIと、その投資・利用・開発・導入に関わる人々のあいだを行き来してきました。これまでに14か国を訪れ、各国の文化にも触れてきました。',about_p2:'<strong>RoundTable AI Labは私が独立して運営する場であり、会社やブランドの立場を代表するものではありません。自分自身の実体験にもとづき、個別のテーマごとに是々非々で向き合います。</strong> 円卓そのものに上座はありません。開発者、ビジネスパーソン、研究者、起業家——どの分野にいても、ここにはあなたの席があります。あなたの視点、議論、そして協働を歓迎します。',about_p3:'この名前は円卓の騎士に由来します——彼らが英雄だったからではなく、対等に座ったからです。この精神はここでのすべてに通じています。<strong>誠実な分析、オープンな共有、そして同じ理念のもとで共に成長すること。</strong>',pill1:'AIツール研究',pill2:'市場インテリジェンス',pill3:'クラウド · AI',pill4:'東京 · 上海',pill5:'日本語 · 中文 · EN · FR',now_tag:'現在の章',now_title:'今取り組んでいること',now_live:'更新中 · 2026',n1t:'AIツール研究',n1d:'AIコーディングアシスタント、エージェント、生産性ツールを体系的に評価——Claude Code、GitHub Copilotなど。あらゆるレベルの実践者向けに知見を公開。',n1tag:'継続中',n2t:'OpenClaw · RoundTable',n2d:'OpenClawエージェントフレームワークの構築と実験。私のエージェント群はそれぞれ円卓の騎士の名を冠している——アーサー王は私の OpenClaw RoundTable の Orchestrator。',n2tag:'積極開発',n3t:'多言語発信',n3d:'中国語、日本語、英語でAI市場の動向を発信——言語の壁を超え、円卓のすべての席に声を。',n3tag:'3言語',n4t:'auto-ppt-prototype',n4d:'MCP、CLI、Dockerを組み合わせたAI PowerPoint生成エージェント——リサーチやアイデアを自動的にスライドに変換。',n4tag:'Python · MCP',proj_tag:'武器庫',proj_title:'ツールキット & ビルド',proj_sub:'フィールドで構築し、ゲートなく共有するオープンソース作品と実験。',p1d:'AIによるPowerPoint生成エージェント。トピックを渡せばデッキが生成される。MCP、CLI、Dockerで構築。',write_tag:'ディスパッチ',write_title:'発信と洞察',write_sub:'AIツールと市場の分析、コメンタリー、フィールドノート。多言語で公開——あなたの席を選んで。',w1t:'Amazonの2026 AIコーディング事件：シニアエンジニアがなぜ審査に残らなければならないか',w1s:'AmazonがAI生成コードにシニアエンジニアの承認を求めるポリシーを導入した件について。業界への意味と、なぜ人間の判断が依然として重要か。',w2t:'OpenAI Codexベストプラクティス — 日本語翻訳版',w2s:'OpenAIのCodexプロンプティングガイドを日本の開発者向けに翻訳・適応。言語の壁を超えてフロンティアのAI知識を届ける。',w3t:'AIマーケットシグナル — @LancelotRT_AI',w3s:'AIツール、市場の動き、業界動態についての短評。正直、中立、多言語。王座なし、シグナルのみ。',ct_tag:'着席する',ct_title:'つながろう',ct_note:'円卓には誰でも座れる——<strong>開発者、ビジネスプロフェッショナル、研究者、起業家</strong>。AIツールに興味があれば、何か面白いものを作っていれば、あるいは正直な視点を交換したいだけでも、ぜひ連絡を。',ct_email_label:'メール',ct_email_handle:'contact@roundtableailab.org',kn_title:'OpenClaw 騎士団',kn_king:'騎士王',kn_five:'五騎士',f_slogan:'すべての席。すべてのアイデア。その先のために。'},
-fr:{nav_about:'À propos',nav_now:'Maintenant',nav_projects:'Arsenal',nav_writing:'Articles',nav_contact:'Contact',hero_eyebrow:'RoundTable AI Lab · Recherche indépendante',hero_t1:'Chaque siège.',hero_t2:'Chaque idée.',hero_t3:'Pour la suite.',hero_desc:"Recherche sur les outils d'IA, veille marché honnête et points de vue personnels — ouvert à tous, où chaque façon de penser mérite sa place.",hero_cta1:'Ce que je construis',hero_cta2:'Lire le Lab',scroll:'Défiler',about_tag:'Le Maître',about_title:'Lijun Liu',about_p1:"Né à Shanghai, aujourd'hui installé à Tokyo et actuellement chez Microsoft. Depuis des années, je navigue entre l'IA et celles et ceux qui y investissent, l'utilisent, la développent et la déploient. J'ai aussi visité 14 pays et découvert différentes cultures.",about_p2:"<strong>Je gère RoundTable AI Lab comme un espace indépendant — il ne représente pas la position d'une entreprise ou d'une marque, et je m'appuie sur mon expérience concrète pour aborder chaque sujet sur ses propres mérites.</strong> La table ronde n'a pas de siège principal. Développeurs, professionnels du monde des affaires, chercheurs, entrepreneurs — quel que soit votre domaine, il y a une place pour vous ici, et vos points de vue, vos discussions et vos collaborations sont les bienvenus.",about_p3:"Le nom vient des Chevaliers de la Table Ronde — non pas parce qu'ils étaient des héros, mais parce qu'ils siégeaient en égaux. Cet esprit traverse tout ici : <strong>analyse honnête, partage ouvert, et progression commune autour des mêmes convictions.</strong>",pill1:'Recherche outils IA',pill2:'Intelligence marché',pill3:'Cloud · IA',pill4:'Tokyo · Shanghai',pill5:'FR · EN · 中文 · 日本語',now_tag:'Chapitre actuel',now_title:'Sur quoi je travaille',now_live:'En cours · 2026',n1t:'Recherche outils IA',n1d:"Évaluation systématique des assistants de codage IA, agents et outils de productivité — Claude Code, GitHub Copilot et au-delà. Publication des résultats pour les praticiens à tous les niveaux.",n1tag:'En cours',n2t:'OpenClaw · RoundTable',n2d:"Construction et expérimentation avec le framework d'agents OpenClaw. Chaque agent porte le nom d'un Chevalier de la Table Ronde — King Arthur est l'Orchestrateur de mon OpenClaw RoundTable.",n2tag:'Construction active',n3t:'Publication multilingue',n3d:"Écriture sur la dynamique du marché IA en chinois, japonais et anglais — briser la barrière des langues pour que chaque siège à la table ait une voix.",n3tag:'3 langues',n4t:'auto-ppt-prototype',n4d:"Un agent de génération PowerPoint IA combinant MCP, CLI et Docker — transformant automatiquement recherches et idées en présentations.",n4tag:'Python · MCP',proj_tag:'Arsenal',proj_title:'Outils & Créations',proj_sub:'Travaux open source et expériences. Construits sur le terrain, partagés sans barrière.',p1d:"Agent de génération PowerPoint propulsé par l'IA. Donnez-lui un sujet, obtenez un deck. MCP, CLI et Docker.",write_tag:'La Dépêche',write_title:'Articles & Insights',write_sub:"Analyses, commentaires et notes de terrain sur les outils IA et le marché. Publié en plusieurs langues — choisissez votre siège.",w1t:"L'incident de codage IA d'Amazon en 2026 : pourquoi les ingénieurs seniors doivent rester dans la boucle",w1s:"Commentaire sur la politique d'Amazon exigeant l'approbation d'un ingénieur senior pour le code généré par IA. Ce que cela signifie pour l'industrie.",w2t:'Bonnes pratiques OpenAI Codex — Traduction japonaise',w2s:"Traduction et adaptation du guide de prompting Codex d'OpenAI pour les développeurs japonais. Rendre les connaissances IA de pointe accessibles par-delà les frontières linguistiques.",w3t:'Signaux marché IA — @LancelotRT_AI',w3s:"Formats courts sur les outils IA, les mouvements du marché et la dynamique industrielle. Honnête, neutre, multilingue. Pas de trône, juste le signal.",ct_tag:'Prendre un siège',ct_title:'Restons en contact',ct_note:"La table ronde a de la place pour tout le monde — <strong>développeurs, professionnels du monde des affaires, chercheurs et entrepreneurs</strong>. Si vous êtes curieux des outils IA ou si vous voulez échanger des perspectives honnêtes, contactez-moi.",ct_email_label:'E-mail',ct_email_handle:'contact@roundtableailab.org',kn_title:'Les Chevaliers OpenClaw',kn_king:'Roi Chevalier',kn_five:'Cinq Chevaliers',f_slogan:'Chaque siège. Chaque idée. Pour la suite.'}
+en:{nav_about:'About',nav_now:'Now',nav_projects:'Toolkit',nav_writing:'Writing',nav_contact:'Contact',hero_eyebrow:'RoundTable AI Lab · Independent Research',hero_t1:'Every Seat.',hero_t2:'Every Idea.',hero_t3:'For What Comes Next.',hero_desc:"AI tools research, honest market insights, and personal perspectives on where AI is really going — open to all, where every way of thinking deserves a seat.",hero_cta1:"What I'm Building",hero_cta2:'Read the Lab',scroll:'Scroll',about_tag:'The Master',about_title:'Lijun Liu',about_p1:'Born in Shanghai, now based in Tokyo, and currently working at Microsoft. I move constantly between AI and the people who invest in it, use it, build it, and deploy it. I have also visited 14 countries and learned from different cultures.',about_p2:'<strong>I run RoundTable AI Lab as an independent space — it does not represent any company or brand position, and everything is based on my own real experience and discussed on its own merits.</strong> The round table itself has no head seat. Developers, business professionals, researchers, and entrepreneurs — no matter your field, there is a seat for you here, and your perspectives, discussion, and collaboration are welcome.',about_p3:'The name comes from the Knights of the Round Table — not because they were heroes, but because they sat as equals. That spirit runs through everything here: <strong>honest analysis, open sharing, and growing together around the same ideals.</strong>',pill1:'AI Tools Research',pill2:'Market Intelligence',pill3:'Cloud · AI',pill4:'Tokyo · Shanghai',pill5:'EN · 中文 · 日本語 · FR',now_tag:'Current Chapter',now_title:"What I'm Working On",now_live:'Live · Updated 2026',n1t:'AI Tools Research',n1d:'Systematically evaluating AI coding assistants, agents, and productivity tools — Claude Code, GitHub Copilot, and beyond. Publishing findings for practitioners at every level.',n1tag:'Ongoing',n2t:'OpenClaw · RoundTable',n2d:'Building and experimenting with the OpenClaw agent framework. Each agent in my fleet is named after a Knight of the Round Table — King Arthur is my OpenClaw RoundTable\'s Orchestrator.',n2tag:'Active Build',n3t:'Multilingual Publishing',n3d:'Writing about AI market dynamics in Chinese, Japanese, and English — breaking the language barrier so every seat at the table has a voice.',n3tag:'3 Languages',n4t:'Vibe Coding',n4d:'Co-coding with AI every day to explore what non-traditional developers can build — turning ideas into working products faster and more creatively.',n4tag:'AI Co-Coding',proj_tag:'Arsenal',proj_title:'Toolkit & Builds',proj_sub:'Mastering five AI agent tools and building with vibe coding — my arsenal for what comes next.',proj_agents_title:'AI Agent Tools',proj_oc_title:'OpenClaw · RoundTable',proj_vibe_title:'Vibe Coding',at_oc_tag:'Open Source Project',at_cop_tag:'AI IDE',at_claude_tag:'Autonomous AI Agent',at_codex_tag:'Autonomous AI Agent',at_ag_tag:'Autonomous AI Agent',at_next_name:'Exploring the Next...',at_next_tag:'To Be Continued',oc_master:'The Master',oc_orchestrator:'Orchestrator',oc_lancelot:'SNS Operations',oc_gawain:'System Maintenance',oc_galahad:'Intelligence Gathering',oc_bedivere:'Content Editing',oc_tristan:'Media Production',p1d:'Open-source PowerPoint generation engine built to be called by AI agents. Create and revise .pptx from natural language via MCP, CLI, or Docker.',write_tag:'The Dispatch',write_title:'Writing & Insights',write_sub:'Analysis, commentary, and field notes on AI tools and the market. Published in multiple languages — pick your seat.',ct_tag:'Take a Seat',ct_title:"Let's Connect",ct_note:'The round table has room for everyone — <strong>developers, business professionals, researchers, and entrepreneurs</strong>. If you\'re curious about AI tools, building something interesting, or just want to exchange honest perspectives, reach out.',ct_email_label:'Email',ct_email_handle:'contact@roundtableailab.org',f_slogan:'Every Seat. Every Idea. For What Comes Next.'},
+zh:{nav_about:'关于',nav_now:'当下',nav_projects:'武器库',nav_writing:'文章',nav_contact:'联系',hero_eyebrow:'圆桌 AI 实验室 · 独立研究',hero_t1:'每一个席位。',hero_t2:'每一个想法。',hero_t3:'为了未见的未来。',hero_desc:'AI工具研究、真实的市场洞察与个人观点——对所有人开放，每一种思考都值得被尊重。',hero_cta1:'我在做什么',hero_cta2:'阅读实验室',scroll:'向下滚动',about_tag:'圆桌主理人',about_title:'刘莉珺',about_p1:'生于上海，现居东京，就职于微软。常年穿梭在AI与投资、使用、开发、部署它的人之间。也曾访问过14个国家，了解各国文化。',about_p2:'<strong>圆桌AI实验室是我独立运营的空间——不代表公司或品牌立场，通过我自己的实际体验、就事论事。</strong> 圆桌本身没有主位。开发者、商界人士、研究员、创业者——无论你身处哪个领域，这里都有你的席位，欢迎你的观点、讨论与合作。',about_p3:'这个名字来自圆桌骑士——不是因为他们是英雄，而是因为他们平等而坐。这种精神贯穿这里的一切：<strong>诚实分析、开放分享、为了相同的理念而共同成长。</strong>',pill1:'AI工具研究',pill2:'市场洞察',pill3:'云 · AI',pill4:'东京 · 上海',pill5:'中文 · 日本語 · EN · FR',now_tag:'当下篇章',now_title:'我在做什么',now_live:'持续更新 · 2026',n1t:'AI工具研究',n1d:'系统评测AI编程助手、智能体与效率工具——Claude Code、GitHub Copilot等。发布面向各层级从业者的研究报告。',n1tag:'持续进行',n2t:'OpenClaw · RoundTable',n2d:'搭建并实验OpenClaw智能体框架。我的每个Agent都以圆桌骑士命名——亚瑟王是我 OpenClaw 圆桌的 Orchestrator。',n2tag:'积极构建',n3t:'多语言发布',n3d:'用中文、日语、英语撰写AI市场动态——打破语言壁垒，让圆桌的每个席位都有发言权。',n3tag:'三种语言',n4t:'Vibe Coding',n4d:'我正在和AI高频协作写代码，以非传统开发者视角探索开发的可能性——把想法更快、更有创造力地变成可用产品。',n4tag:'AI 协同编码',proj_tag:'武器库',proj_title:'工具与构建',proj_sub:'精通五种AI Agent工具，以Vibe Coding构建项目——迎接未来的武器库。',proj_agents_title:'AI Agent 工具',proj_oc_title:'OpenClaw · RoundTable',proj_vibe_title:'Vibe Coding',at_oc_tag:'开源项目',at_cop_tag:'AI IDE',at_claude_tag:'自主 AI Agent',at_codex_tag:'自主 AI Agent',at_ag_tag:'自主 AI Agent',at_next_name:'探索下一个...',at_next_tag:'未完待续',oc_master:'The Master',oc_orchestrator:'协调者',oc_lancelot:'SNS运营',oc_gawain:'系统维护',oc_galahad:'情报搜集',oc_bedivere:'文字编辑',oc_tristan:'媒体制作',p1d:'面向 AI Agent 调用的开源 PowerPoint 生成引擎。可通过 MCP、CLI 或 Docker，用自然语言创建并修订 .pptx。',write_tag:'情报站',write_title:'文章与洞察',write_sub:'AI工具与市场的分析、评论与田野笔记。多语言发布——选择你的席位。',ct_tag:'入席',ct_title:'保持联系',ct_note:'圆桌容得下所有人——<strong>开发者、商界人士、研究者、创业者</strong>。如果你对AI工具感到好奇、正在构建有趣的东西，或只是想交流真诚的观点，欢迎联系。',ct_email_label:'电子邮件',ct_email_handle:'contact@roundtableailab.org',f_slogan:'每一个席位。每一个想法。为了未见的未来。'},
+ja:{nav_about:'About',nav_now:'Now',nav_projects:'武器庫',nav_writing:'発信',nav_contact:'連絡',hero_eyebrow:'ラウンドテーブル AI Lab · 独立研究',hero_t1:'すべての席。',hero_t2:'すべてのアイデア。',hero_t3:'その先のために。',hero_desc:'AIツールの研究、正直な市場インサイト、個人的な視点——誰にでも開かれ、あらゆる思考が等しく尊重される場所。',hero_cta1:'今作っているもの',hero_cta2:'ラボを読む',scroll:'スクロール',about_tag:'マスター',about_title:'リュウ　リクン',about_p1:'上海生まれ、現在は東京在住で、Microsoftに勤務しています。私は長年、AIと、その投資・利用・開発・導入に関わる人々のあいだを行き来してきました。これまでに14か国を訪れ、各国の文化にも触れてきました。',about_p2:'<strong>RoundTable AI Labは私が独立して運営する場であり、会社やブランドの立場を代表するものではありません。自分自身の実体験にもとづき、個別のテーマごとに是々非々で向き合います。</strong> 円卓そのものに上座はありません。開発者、ビジネスパーソン、研究者、起業家——どの分野にいても、ここにはあなたの席があります。あなたの視点、議論、そして協働を歓迎します。',about_p3:'この名前は円卓の騎士に由来します——彼らが英雄だったからではなく、対等に座ったからです。この精神はここでのすべてに通じています。<strong>誠実な分析、オープンな共有、そして同じ理念のもとで共に成長すること。</strong>',pill1:'AIツール研究',pill2:'市場インテリジェンス',pill3:'クラウド · AI',pill4:'東京 · 上海',pill5:'日本語 · 中文 · EN · FR',now_tag:'現在の章',now_title:'今取り組んでいること',now_live:'更新中 · 2026',n1t:'AIツール研究',n1d:'AIコーディングアシスタント、エージェント、生産性ツールを体系的に評価——Claude Code、GitHub Copilotなど。あらゆるレベルの実践者向けに知見を公開。',n1tag:'継続中',n2t:'OpenClaw · RoundTable',n2d:'OpenClawエージェントフレームワークの構築と実験。私のエージェント群はそれぞれ円卓の騎士の名を冠している——アーサー王は私の OpenClaw RoundTable の Orchestrator。',n2tag:'積極開発',n3t:'多言語発信',n3d:'中国語、日本語、英語でAI市場の動向を発信——言語の壁を超え、円卓のすべての席に声を。',n3tag:'3言語',n4t:'Vibe Coding',n4d:'AIと日々ペアでコードを書き、非伝統的な開発者として何を作れるかを探っています。アイデアを、より速く創造的に動くプロダクトへ。',n4tag:'AI協働コーディング',proj_tag:'武器庫',proj_title:'ツールキット & ビルド',proj_sub:'5つのAIエージェントツールを駆使し、Vibe Codingで構築する——未来への武器庫。',proj_agents_title:'AI Agentツール',proj_oc_title:'OpenClaw · RoundTable',proj_vibe_title:'Vibe Coding',at_oc_tag:'オープンソース',at_cop_tag:'AI IDE',at_claude_tag:'自律型AI Agent',at_codex_tag:'自律型AI Agent',at_ag_tag:'自律型AI Agent',at_next_name:'次の一手を探索中...',at_next_tag:'続く',oc_master:'The Master',oc_orchestrator:'オーケストレーター',oc_lancelot:'SNS運営',oc_gawain:'システム保守',oc_galahad:'情報収集',oc_bedivere:'コンテンツ編集',oc_tristan:'メディア制作',p1d:'AIエージェントから呼び出せるオープンソースのPowerPoint生成エンジン。MCP・CLI・Docker経由で自然言語から .pptx の作成と改訂ができます。',write_tag:'ディスパッチ',write_title:'発信と洞察',write_sub:'AIツールと市場の分析、コメンタリー、フィールドノート。多言語で公開——あなたの席を選んで。',ct_tag:'着席する',ct_title:'つながろう',ct_note:'円卓には誰でも座れる——<strong>開発者、ビジネスプロフェッショナル、研究者、起業家</strong>。AIツールに興味があれば、何か面白いものを作っていれば、あるいは正直な視点を交換したいだけでも、ぜひ連絡を。',ct_email_label:'メール',ct_email_handle:'contact@roundtableailab.org',f_slogan:'すべての席。すべてのアイデア。その先のために。'},
+fr:{nav_about:'À propos',nav_now:'Maintenant',nav_projects:'Arsenal',nav_writing:'Articles',nav_contact:'Contact',hero_eyebrow:'RoundTable AI Lab · Recherche indépendante',hero_t1:'Chaque siège.',hero_t2:'Chaque idée.',hero_t3:'Pour la suite.',hero_desc:"Recherche sur les outils d'IA, veille marché honnête et points de vue personnels — ouvert à tous, où chaque façon de penser mérite sa place.",hero_cta1:'Ce que je construis',hero_cta2:'Lire le Lab',scroll:'Défiler',about_tag:'Le Maître',about_title:'Lijun Liu',about_p1:"Né à Shanghai, aujourd'hui installé à Tokyo et actuellement chez Microsoft. Depuis des années, je navigue entre l'IA et celles et ceux qui y investissent, l'utilisent, la développent et la déploient. J'ai aussi visité 14 pays et découvert différentes cultures.",about_p2:"<strong>Je gère RoundTable AI Lab comme un espace indépendant — il ne représente pas la position d'une entreprise ou d'une marque, et je m'appuie sur mon expérience concrète pour aborder chaque sujet sur ses propres mérites.</strong> La table ronde n'a pas de siège principal. Développeurs, professionnels du monde des affaires, chercheurs, entrepreneurs — quel que soit votre domaine, il y a une place pour vous ici.",about_p3:"Le nom vient des Chevaliers de la Table Ronde — non pas parce qu'ils étaient des héros, mais parce qu'ils siégeaient en égaux. Cet esprit traverse tout ici : <strong>analyse honnête, partage ouvert, et progression commune autour des mêmes convictions.</strong>",pill1:'Recherche outils IA',pill2:'Intelligence marché',pill3:'Cloud · IA',pill4:'Tokyo · Shanghai',pill5:'FR · EN · 中文 · 日本語',now_tag:'Chapitre actuel',now_title:'Sur quoi je travaille',now_live:'En cours · 2026',n1t:'Recherche outils IA',n1d:"Évaluation systématique des assistants de codage IA, agents et outils de productivité — Claude Code, GitHub Copilot et au-delà.",n1tag:'En cours',n2t:'OpenClaw · RoundTable',n2d:"Construction et expérimentation avec le framework d'agents OpenClaw. Chaque agent porte le nom d'un Chevalier de la Table Ronde.",n2tag:'Construction active',n3t:'Publication multilingue',n3d:"Écriture sur la dynamique du marché IA en chinois, japonais et anglais — briser la barrière des langues.",n3tag:'3 langues',n4t:'Vibe Coding',n4d:"Je code au quotidien avec l'IA pour explorer, en tant que développeur non traditionnel, jusqu'où l'on peut aller.",n4tag:'Co-coding IA',proj_tag:'Arsenal',proj_title:'Outils & Créations',proj_sub:"Maîtriser cinq outils AI agent et construire en vibe coding — mon arsenal pour la suite.",proj_agents_title:'Outils AI Agent',proj_oc_title:'OpenClaw · RoundTable',proj_vibe_title:'Vibe Coding',at_oc_tag:'Projet Open Source',at_cop_tag:'AI IDE',at_claude_tag:'AI Agent Autonome',at_codex_tag:'AI Agent Autonome',at_ag_tag:'AI Agent Autonome',at_next_name:'Explorer la suite...',at_next_tag:'À suivre',oc_master:'Le Maître',oc_orchestrator:'Orchestrateur',oc_lancelot:'Opérations SNS',oc_gawain:'Maintenance système',oc_galahad:'Collecte de renseignements',oc_bedivere:'Édition de contenu',oc_tristan:'Production média',p1d:"Moteur open source de génération PowerPoint conçu pour être appelé par des agents IA. Créez et révisez des .pptx en langage naturel via MCP, CLI ou Docker.",write_tag:'La Dépêche',write_title:'Articles & Insights',write_sub:"Analyses, commentaires et notes de terrain sur les outils IA et le marché. Publié en plusieurs langues — choisissez votre siège.",ct_tag:'Prendre un siège',ct_title:'Restons en contact',ct_note:"La table ronde a de la place pour tout le monde — <strong>développeurs, professionnels, chercheurs et entrepreneurs</strong>. Si vous êtes curieux des outils IA ou si vous voulez échanger des perspectives honnêtes, contactez-moi.",ct_email_label:'E-mail',ct_email_handle:'contact@roundtableailab.org',f_slogan:'Chaque siège. Chaque idée. Pour la suite.'}
 };
-
-Object.assign(T.en,{n4t:'Vibe Coding',n4d:'Co-coding with AI every day to explore what non-traditional developers can build — turning ideas into working products faster and more creatively.',n4tag:'AI Co-Coding'});
-Object.assign(T.zh,{n4t:'Vibe Coding',n4d:'我正在和AI高频协作写代码，以非传统开发者视角探索开发的可能性——把想法更快、更有创造力地变成可用产品。',n4tag:'AI 协同编码'});
-Object.assign(T.ja,{n4t:'Vibe Coding',n4d:'AIと日々ペアでコードを書き、非伝統的な開発者として何を作れるかを探っています。アイデアを、より速く創造的に動くプロダクトへ。',n4tag:'AI協働コーディング'});
-Object.assign(T.fr,{n4t:'Vibe Coding',n4d:"Je code au quotidien avec l'IA pour explorer, en tant que développeur non traditionnel, jusqu'où l'on peut aller — de l'idée à un produit fonctionnel, plus vite et avec plus de créativité.",n4tag:'Co-coding IA'});
-Object.assign(T.en,{p1d:'Open-source PowerPoint generation engine built to be called by AI agents. Create and revise .pptx from natural language via MCP, CLI, or Docker.'});
-Object.assign(T.zh,{p1d:'面向 AI Agent 调用的开源 PowerPoint 生成引擎。可通过 MCP、CLI 或 Docker，用自然语言创建并修订 .pptx。'});
-Object.assign(T.ja,{p1d:'AIエージェントから呼び出せるオープンソースのPowerPoint生成エンジン。MCP・CLI・Docker経由で自然言語から .pptx の作成と改訂ができます。'});
-Object.assign(T.fr,{p1d:"Moteur open source de génération PowerPoint conçu pour être appelé par des agents IA. Créez et révisez des .pptx en langage naturel via MCP, CLI ou Docker."});
-Object.assign(T.en,{proj_agents_title:'AI Agent Tools',proj_oc_title:'OpenClaw \u00b7 RoundTable',proj_vibe_title:'Vibe Coding',proj_sub:'Mastering five AI agent tools and building with vibe coding \u2014 my arsenal for what comes next.',at_oc_tag:'Open Source Project',at_cop_tag:'AI IDE',at_claude_tag:'Autonomous AI Agent',at_codex_tag:'Autonomous AI Agent',at_ag_tag:'Autonomous AI Agent',oc_master:'The Master',oc_orchestrator:'Orchestrator',oc_lancelot:'SNS Operations',oc_gawain:'System Maintenance',oc_galahad:'Intelligence Gathering',oc_bedivere:'Content Editing',oc_tristan:'Media Production',at_next_name:'Exploring the Next...',at_next_tag:'To Be Continued'});
-Object.assign(T.zh,{proj_agents_title:'AI Agent 工具',proj_oc_title:'OpenClaw · RoundTable',proj_vibe_title:'Vibe Coding',proj_sub:'精通五种AI Agent工具，以Vibe Coding构建项目——迎接未来的武器库。',at_oc_tag:'开源项目',at_cop_tag:'AI IDE',at_claude_tag:'自主 AI Agent',at_codex_tag:'自主 AI Agent',at_ag_tag:'自主 AI Agent',oc_master:'The Master',oc_orchestrator:'协调者',oc_lancelot:'SNS运营',oc_gawain:'系统维护',oc_galahad:'情报搜集',oc_bedivere:'文字编辑',oc_tristan:'媒体制作',at_next_name:'探索下一个...',at_next_tag:'未完待续'});
-Object.assign(T.ja,{proj_agents_title:'AI Agentツール',proj_oc_title:'OpenClaw · RoundTable',proj_vibe_title:'Vibe Coding',proj_sub:'5つのAIエージェントツールを駆使し、Vibe Codingで構築する——未来への武器庫。',at_oc_tag:'オープンソース',at_cop_tag:'AI IDE',at_claude_tag:'自律型AI Agent',at_codex_tag:'自律型AI Agent',at_ag_tag:'自律型AI Agent',oc_master:'The Master',oc_orchestrator:'オーケストレーター',oc_lancelot:'SNS運営',oc_gawain:'システム保守',oc_galahad:'情報収集',oc_bedivere:'コンテンツ編集',oc_tristan:'メディア制作',at_next_name:'次の一手を探索中...',at_next_tag:'続く'});
-Object.assign(T.fr,{proj_agents_title:'Outils AI Agent',proj_oc_title:'OpenClaw · RoundTable',proj_vibe_title:'Vibe Coding',proj_sub:"Maîtriser cinq outils AI agent et construire en vibe coding — mon arsenal pour la suite.",at_oc_tag:'Projet Open Source',at_cop_tag:'AI IDE',at_claude_tag:'AI Agent Autonome',at_codex_tag:'AI Agent Autonome',at_ag_tag:'AI Agent Autonome',oc_master:'Le Maître',oc_orchestrator:'Orchestrateur',oc_lancelot:'Opérations SNS',oc_gawain:'Maintenance système',oc_galahad:'Collecte de renseignements',oc_bedivere:'Édition de contenu',oc_tristan:'Production média',at_next_name:'Explorer la suite...',at_next_tag:'À suivre'});
 
 function getLocalizedContent(source,lang){
   if(!source||typeof source!=='object')return '';
   return source[lang]||source.en||source.zh||source.ja||source.fr||'';
 }
 
-function mapTranslateLang(lang){
-  if(lang==='zh')return 'zh-CN';
-  return lang;
-}
+function mapTranslateLang(lang){return lang==='zh'?'zh-CN':lang}
 
 function pickSourceLang(source,targetLang){
-  for(const lang of SUPPORTED_WRITING_LANGS){
-    if(lang!==targetLang&&source[lang])return lang;
-  }
+  for(const lang of SUPPORTED_WRITING_LANGS){if(lang!==targetLang&&source[lang])return lang}
   return null;
 }
 
 async function translateText(text,fromLang,toLang){
-  const sl=mapTranslateLang(fromLang||'auto');
-  const tl=mapTranslateLang(toLang);
+  const sl=mapTranslateLang(fromLang||'auto'),tl=mapTranslateLang(toLang);
   const url=`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}&dt=t&q=${encodeURIComponent(text)}`;
   const res=await fetch(url);
   if(!res.ok)throw new Error(`Translate request failed: ${res.status}`);
@@ -647,36 +851,22 @@ async function translateMissingField(item,field,targetLang){
   if(!fromLang)return;
   const original=source[fromLang];
   if(!original)return;
-
   const key=`${fromLang}:${targetLang}:${field}:${original}`;
-  if(translationCache.has(key)){
-    source[targetLang]=translationCache.get(key);
-    return;
-  }
+  if(translationCache.has(key)){source[targetLang]=translationCache.get(key);return}
   if(translationInFlight.has(key)||translationFailed.has(key))return;
-
   translationInFlight.add(key);
   try{
     const translated=await translateText(original,fromLang,targetLang);
-    if(translated){
-      translationCache.set(key,translated);
-      source[targetLang]=translated;
-    }else{
-      translationFailed.add(key);
-    }
-  }catch(_err){
-    translationFailed.add(key);
-  }finally{
-    translationInFlight.delete(key);
-  }
+    if(translated){translationCache.set(key,translated);source[targetLang]=translated}
+    else translationFailed.add(key);
+  }catch(_){translationFailed.add(key)}
+  finally{translationInFlight.delete(key)}
 }
 
-function formatWritingDate(date){
-  return typeof date==='string'?date.replace(/-/g,'.'):'';
-}
+function formatWritingDate(date){return typeof date==='string'?date.replace(/-/g,'.'):''}
 
 function sortedWritings(items){
-  return [...items].sort((a,b)=>{
+  return[...items].sort((a,b)=>{
     const pinDiff=Number(Boolean(b.pinned))-Number(Boolean(a.pinned));
     if(pinDiff!==0)return pinDiff;
     return new Date(b.date)-new Date(a.date);
@@ -689,64 +879,39 @@ function renderWritings(){
   list.innerHTML='';
   const langAtRender=currentLang;
   const translationJobs=[];
-
   sortedWritings(writingsData).forEach(item=>{
     const article=document.createElement('article');
     article.className='wi';
-
     const date=document.createElement('span');
     date.className='w-date';
     date.textContent=formatWritingDate(item.date);
-
     const main=document.createElement('a');
     main.className='w-main';
     main.href=item.links?.linkedin||item.links?.x||'#';
     main.target='_blank';
     main.rel='noopener noreferrer';
-
     const title=document.createElement('div');
     title.className='w-title';
     title.textContent=getLocalizedContent(item.title,currentLang);
     if(!item.title?.[currentLang])translationJobs.push(translateMissingField(item,'title',currentLang));
-
     const sub=document.createElement('div');
     sub.className='w-sub';
     sub.textContent=getLocalizedContent(item.summary,currentLang);
     if(!item.summary?.[currentLang])translationJobs.push(translateMissingField(item,'summary',currentLang));
-
     main.append(title,sub);
-
     const links=document.createElement('span');
     links.className='w-plat-links';
-
     if(item.links?.linkedin){
-      const linkedin=document.createElement('a');
-      linkedin.className='w-plat-link';
-      linkedin.href=item.links.linkedin;
-      linkedin.target='_blank';
-      linkedin.rel='noopener noreferrer';
-      linkedin.textContent='LinkedIn';
-      links.appendChild(linkedin);
+      const a=document.createElement('a');a.className='w-plat-link';a.href=item.links.linkedin;a.target='_blank';a.rel='noopener noreferrer';a.textContent='LinkedIn';links.appendChild(a);
     }
-
     if(item.links?.x){
-      const x=document.createElement('a');
-      x.className='w-plat-link';
-      x.href=item.links.x;
-      x.target='_blank';
-      x.rel='noopener noreferrer';
-      x.textContent='X (Twitter)';
-      links.appendChild(x);
+      const a=document.createElement('a');a.className='w-plat-link';a.href=item.links.x;a.target='_blank';a.rel='noopener noreferrer';a.textContent='X (Twitter)';links.appendChild(a);
     }
-
     article.append(date,main,links);
     list.appendChild(article);
   });
-
   if(translationJobs.length>0){
-    Promise.allSettled(translationJobs).then(()=>{
-      if(currentLang===langAtRender)renderWritings();
-    });
+    Promise.allSettled(translationJobs).then(()=>{if(currentLang===langAtRender)renderWritings()});
   }
 }
 
@@ -757,9 +922,7 @@ async function loadWritings(){
     const data=await res.json();
     writingsData=Array.isArray(data)?data:[];
     renderWritings();
-  }catch(err){
-    console.error(err);
-  }
+  }catch(err){console.error(err)}
 }
 
 function setLang(l){
@@ -770,7 +933,6 @@ function setLang(l){
   const map={en:'EN',zh:'中文',ja:'日本語',fr:'FR'};
   document.querySelectorAll('.lang-btn').forEach(b=>{if(b.textContent===map[l])b.classList.add('active')});
   document.documentElement.lang=l==='zh'?'zh-Hans':l==='ja'?'ja':l;
-  updateThemeButton(document.documentElement.getAttribute('data-theme')||'dark');
   renderWritings();
 }
 
