@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roundtableailab.org/sitemap.xml
