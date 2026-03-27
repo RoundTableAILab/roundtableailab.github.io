@@ -27,7 +27,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="/manifest-dark.json" id="manifestLink">
 <meta name="theme-color" content="#040508" id="themeColorMeta">
 <meta name="color-scheme" content="dark light">
 
@@ -867,6 +867,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 // ===== THEME =====
 const THEME_KEY='roundtable-theme';
 const themeMeta=document.getElementById('themeColorMeta');
+const manifestLink=document.getElementById('manifestLink');
 const systemThemeQuery=window.matchMedia('(prefers-color-scheme: light)');
 
 function readSavedTheme(){
@@ -885,6 +886,12 @@ function updateThemeMeta(theme){
   if(themeMeta)themeMeta.setAttribute('content',theme==='light'?'#f5efe4':'#040508');
 }
 
+function updateManifest(theme){
+  if(!manifestLink)return;
+  const href=theme==='light'?'/manifest-light.json':'/manifest-dark.json';
+  if(manifestLink.getAttribute('href')!==href)manifestLink.setAttribute('href',href);
+}
+
 function updateThemeAssets(theme){
   const logoSrc=theme==='light'?'roundtable-logo-transparent-gold.png':'roundtable-logo-transparent.png';
   const navLogo=document.getElementById('navLogo');
@@ -899,6 +906,7 @@ function setTheme(theme,persist=true){
   document.documentElement.setAttribute('data-theme',theme);
   updateThemeControls(theme);
   updateThemeMeta(theme);
+  updateManifest(theme);
   updateThemeAssets(theme);
   if(persist)writeSavedTheme(theme);
 }
