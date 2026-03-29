@@ -1,5 +1,25 @@
 [
   {
+    "id": "2026-03-28-non-coding-architect-ai-project-shipping",
+    "date": "2026-03-28",
+    "pinned": false,
+    "title": {
+      "en": "How a Non-Coding Architect Shipped a Project with AI",
+      "zh": "一个不写代码的架构师，如何与 AI 一起把项目成功出货",
+      "ja": "コードを書かないアーキテクトがAIと一緒にプロジェクトを出荷した話",
+      "fr": "Comment un architecte non codeur a livré un projet avec l'IA"
+    },
+    "summary": {
+      "en": "A practical account of how a non-coding architect collaborated with AI to ship a real project, and what that says about delivery in the agent era.",
+      "zh": "从实战角度复盘一位不写代码的架构师如何借助 AI 完成项目交付，以及这对 Agent 时代协作与出货意味着什么。",
+      "ja": "コードを書かないアーキテクトがAIと協働して実案件を出荷したプロセスを振り返り、Agent時代の協業とデリバリーの意味を整理する。",
+      "fr": "Un retour d'experience concret sur la facon dont un architecte non codeur a collabore avec l'IA pour livrer un vrai projet, et sur ce que cela revele de la livraison a l'ere des agents."
+    },
+    "links": {
+      "linkedin": "https://www.linkedin.com/pulse/%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%9B%B8%E3%81%8B%E3%81%AA%E3%81%84%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%88%E3%81%8Cai%E3%81%A8%E4%B8%80%E7%B7%92%E3%81%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E5%87%BA%E8%8D%B7%E3%81%97%E3%81%9F%E8%A9%B1encn-follows-lijun-liu-mba-q700c"
+    }
+  },
+  {
     "id": "2026-03-22-anthropic-2026-report",
     "date": "2026-03-22",
     "pinned": false,
