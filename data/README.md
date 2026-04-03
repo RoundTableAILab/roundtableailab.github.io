@@ -5,6 +5,7 @@ Edit `writings.json` to add or update articles.
 ## Required fields per item
 
 - `id`: unique stable id, recommended format `YYYY-MM-DD-topic-slug`
+- `author`: member id from `members.json` (e.g. `"lijun"`)
 - `date`: publish date in `YYYY-MM-DD`
 - `title`: localized object, at least one language key (`en`/`zh`/`ja`/`fr`)
 - `summary`: localized object, at least one language key (`en`/`zh`/`ja`/`fr`)
