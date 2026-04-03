@@ -1,5 +1,26 @@
 [
   {
+    "id": "2026-04-03-claude-code-howto-guide",
+    "date": "2026-04-03",
+    "pinned": false,
+    "title": {
+      "en": "Don't Just \"Run and Done\" with Claude Code! A Complete Breakdown of the \"claude-howto\" Practical Guide for Operational Design",
+      "zh": "别让 Claude Code 止步于『敲完就完』！运用设计实践指南「claude-howto」完全解剖",
+      "ja": "Claude Code を『打って終わり』で終わらせない！運用設計まで導く実践ガイド「claude-howto」完全解剖",
+      "fr": "Ne vous arrêtez pas au « lancer et oublier » avec Claude Code ! Décryptage complet du guide pratique « claude-howto » pour la conception opérationnelle"
+    },
+    "summary": {
+      "en": "A deep dive into the \"claude-howto\" guide, showing how to go beyond one-shot prompting and build sustainable operational workflows with Claude Code.",
+      "zh": "深度拆解「claude-howto」指南，展示如何超越一次性提示，用 Claude Code 构建可持续的运维工作流。",
+      "ja": "「claude-howto」ガイドを徹底解剖し、一発プロンプトを超えてClaude Codeで持続可能な運用設計を実現する方法を解説。",
+      "fr": "Décryptage approfondi du guide « claude-howto » : dépasser le prompt unique et construire des workflows opérationnels durables avec Claude Code."
+    },
+    "links": {
+      "linkedin": "https://www.linkedin.com/pulse/claude-code-lijun-liu-mba-kyqoc",
+      "x": "https://x.com/LancelotRT_AI/status/2040006773306745343"
+    }
+  },
+  {
     "id": "2026-03-28-non-coding-architect-ai-project-shipping",
     "date": "2026-03-28",
     "pinned": false,
