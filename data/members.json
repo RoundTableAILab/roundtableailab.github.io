@@ -1,0 +1,38 @@
+[
+  {
+    "id": "lijun",
+    "name": {
+      "en": "Lijun Liu",
+      "zh": "刘莉珺",
+      "ja": "リュウ　リクン",
+      "fr": "Lijun Liu"
+    },
+    "role": {
+      "en": "Founder",
+      "zh": "创始人",
+      "ja": "ファウンダー",
+      "fr": "Fondateur"
+    },
+    "avatar": "/roundtable-logo-transparent.png",
+    "location": {
+      "en": "Tokyo · Shanghai",
+      "zh": "东京 · 上海",
+      "ja": "東京 · 上海",
+      "fr": "Tokyo · Shanghai"
+    },
+    "bio": {
+      "en": "Born in Shanghai, now based in Tokyo, and currently working at Microsoft. I move constantly between AI and the people who invest in it, use it, build it, and deploy it. I have also visited 16 countries and regions, learning about their cultures and histories, and am still exploring.",
+      "zh": "生于上海，现居东京，就职于微软。常年穿梭在AI与投资、使用、开发、部署它的人之间。也曾访问过16个国家和地区，学习各国文化历史，并且仍在探索中。",
+      "ja": "上海生まれ、現在は東京在住で、Microsoftに勤務しています。私は長年、AIと、その投資・利用・開発・導入に関わる人々のあいだを行き来してきました。これまでに16の国と地域を訪れ、各国の文化や歴史を学んできましたが、まだ探索は続いています。",
+      "fr": "Né à Shanghai, aujourd'hui installé à Tokyo et actuellement chez Microsoft. Depuis des années, je navigue entre l'IA et celles et ceux qui y investissent, l'utilisent, la développent et la déploient."
+    },
+    "tags": ["AI Tools Research", "Market Intelligence", "Cloud · AI"],
+    "links": {
+      "email": "contact@roundtableailab.org",
+      "linkedin": "https://linkedin.com/in/lijun-liu",
+      "x": "https://x.com/LancelotRT_AI",
+      "github": "https://github.com/lijunliu-gh"
+    },
+    "hasOpenclaw": true
+  }
+]

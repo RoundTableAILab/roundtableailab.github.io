@@ -1,6 +1,7 @@
 [
   {
     "id": "2026-04-03-claude-code-howto-guide",
+    "author": "lijun",
     "date": "2026-04-03",
     "pinned": false,
     "title": {
@@ -22,6 +23,7 @@
   },
   {
     "id": "2026-03-28-non-coding-architect-ai-project-shipping",
+    "author": "lijun",
     "date": "2026-03-28",
     "pinned": false,
     "title": {
@@ -42,6 +44,7 @@
   },
   {
     "id": "2026-03-22-anthropic-2026-report",
+    "author": "lijun",
     "date": "2026-03-22",
     "pinned": false,
     "title": {
@@ -62,6 +65,7 @@
   },
   {
     "id": "2026-03-18-ai-democratization-playbook",
+    "author": "lijun",
     "date": "2026-03-18",
     "pinned": false,
     "title": {
@@ -83,6 +87,7 @@
   },
   {
     "id": "2026-03-13-ai-qa-strategy",
+    "author": "lijun",
     "date": "2026-03-13",
     "pinned": false,
     "title": {
@@ -104,6 +109,7 @@
   },
   {
     "id": "2026-03-11-openclaw-multi-agent",
+    "author": "lijun",
     "date": "2026-03-11",
     "pinned": false,
     "title": {
@@ -124,6 +130,7 @@
   },
   {
     "id": "2026-03-07-gpt-54-impact",
+    "author": "lijun",
     "date": "2026-03-07",
     "pinned": false,
     "title": {
@@ -145,6 +152,7 @@
   },
   {
     "id": "2026-03-01-image-generation-speed",
+    "author": "lijun",
     "date": "2026-03-01",
     "pinned": false,
     "title": {
@@ -166,6 +174,7 @@
   },
   {
     "id": "2026-02-26-build-agent-team",
+    "author": "lijun",
     "date": "2026-02-26",
     "pinned": false,
     "title": {
