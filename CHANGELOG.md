@@ -4,6 +4,13 @@ All notable changes to the RoundTable AI Lab website will be documented in this 
 
 Format follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [v3.3.1] - 2026-04-06
+
+### Added
+- Floating QR code button (bottom-right) with popup panel for easy mobile scanning
+- `qrcode.png` — QR code linking to roundtableailab.org
+- QR float styles with dark/light theme support and mobile responsiveness
+
 ## [v3.3.0] - 2026-04-04
 
 ### Added
