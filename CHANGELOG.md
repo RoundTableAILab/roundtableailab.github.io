@@ -4,6 +4,13 @@ All notable changes to the RoundTable AI Lab website will be documented in this 
 
 Format follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [v3.5.2] - 2026-04-07
+
+### Added
+- Now section card #06: "Next Chapter..." placeholder card to fill the 2-column grid gap
+- `.nc-next` CSS style with reduced opacity and dashed border for placeholder visual
+- i18n translations for the new card in all 4 languages (EN, 中文, 日本語, FR)
+
 ## [v3.5.0] - 2026-04-07
 
 ### Added

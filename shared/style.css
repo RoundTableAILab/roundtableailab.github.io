@@ -439,6 +439,8 @@ html[data-theme='light'] .orbit { border-color: rgba(184,138,47,0.12); }
 .nc-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
 .nc-tag-link { text-decoration: none; cursor: none; transition: color .3s, border-color .3s; }
 .nc-tag-link:hover { color: var(--text); border-color: var(--gold); }
+.nc-next { opacity: .55; border-style: dashed; }
+.nc-next .nc-num { color: rgba(201,168,76,.15); }
 
 /* PROJECTS */
 .projects { position: relative; z-index: 2; }
