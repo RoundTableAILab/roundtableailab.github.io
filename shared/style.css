@@ -431,6 +431,10 @@ html[data-theme='light'] .orbit { border-color: rgba(184,138,47,0.12); }
 .nc-title { font-family: 'Cinzel', serif; font-size: .88rem; font-weight: 600; margin-bottom: 10px; color: var(--text); }
 .nc-desc { font-size: .72rem; line-height: 1.9; color: var(--muted); }
 .nc-tag { display: inline-block; margin-top: 16px; padding: 3px 10px; border: 1px solid var(--border); font-size: .55rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+a.nc-link { display: block; text-decoration: none; color: inherit; cursor: none; }
+a.nc-link:hover { background: var(--panel-hover); }
+a.nc-link .nc-tag { transition: color .3s; }
+a.nc-link:hover .nc-tag { color: var(--text); }
 
 /* PROJECTS */
 .projects { position: relative; z-index: 2; }

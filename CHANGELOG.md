@@ -4,6 +4,13 @@ All notable changes to the RoundTable AI Lab website will be documented in this 
 
 Format follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [v3.4.0] - 2026-04-07
+
+### Added
+- Now section card #05: Community Talk · OpenClaw — links to YouTube Shorts of the Tokyo Generative AI Development Community presentation (2026.4.4)
+- `nc-link` CSS variant for clickable Now cards with hover effects
+- i18n translations for the new card in all 4 languages (EN, 中文, 日本語, FR)
+
 ## [v3.3.1] - 2026-04-06
 
 ### Added
