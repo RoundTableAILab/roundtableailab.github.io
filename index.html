@@ -73,8 +73,35 @@
     <li><a href="#projects" data-i18n="nav_projects">Toolkit</a></li>
     <li><a href="#writing" data-i18n="nav_writing">Writing</a></li>
     <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    <li class="nav-menu-lang">
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('zh')">中文</button>
+        <button class="lang-btn" onclick="setLang('ja')">日本語</button>
+        <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      </div>
+    </li>
   </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
   <div class="nav-actions">
+    <button class="theme-toggle" type="button" aria-label="Toggle theme" onclick="toggleTheme()">
+      <svg class="theme-icon-dark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7.2 7.2 0 0 0 9.8 9.8Z"></path>
+      </svg>
+      <svg class="theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.5"></circle>
+        <path d="M12 2.5v3"></path>
+        <path d="M12 18.5v3"></path>
+        <path d="M21.5 12h-3"></path>
+        <path d="M5.5 12h-3"></path>
+        <path d="m18.7 5.3-2.1 2.1"></path>
+        <path d="m7.4 16.6-2.1 2.1"></path>
+        <path d="m18.7 18.7-2.1-2.1"></path>
+        <path d="m7.4 7.4-2.1-2.1"></path>
+      </svg>
+    </button>
     <div class="theme-switcher" role="group" aria-label="Theme switcher">
       <button class="theme-btn" type="button" data-theme-mode="dark" aria-label="Switch to dark theme" title="Night" onclick="setTheme('dark')">
         <svg viewBox="0 0 24 24" aria-hidden="true">

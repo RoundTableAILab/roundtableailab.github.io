@@ -61,6 +61,11 @@ function getInitialTheme(){
   return systemThemeQuery.matches?'light':'dark';
 }
 
+function toggleTheme(){
+  const current=document.documentElement.getAttribute('data-theme')||'dark';
+  setTheme(current==='dark'?'light':'dark');
+}
+
 if(systemThemeQuery.addEventListener){
   systemThemeQuery.addEventListener('change',e=>{
     if(!readSavedTheme())setTheme(e.matches?'light':'dark',false);
@@ -69,6 +74,22 @@ if(systemThemeQuery.addEventListener){
 
 // ===== NAV SCROLL =====
 window.addEventListener('scroll',()=>{document.querySelector('.nav').style.borderBottomColor=window.scrollY>30?'var(--nav-line-strong)':'var(--nav-line-soft)'});
+
+// ===== MOBILE NAV =====
+function toggleMobileNav(){
+  const btn=document.querySelector('.nav-hamburger');
+  const links=document.querySelector('.nav-links');
+  btn.classList.toggle('active');
+  links.classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    const btn=document.querySelector('.nav-hamburger');
+    const links=document.querySelector('.nav-links');
+    btn.classList.remove('active');
+    links.classList.remove('open');
+  });
+});
 
 // ===== I18N =====
 let currentLang='en';

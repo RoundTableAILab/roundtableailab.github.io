@@ -4,6 +4,19 @@ All notable changes to the RoundTable AI Lab website will be documented in this 
 
 Format follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [v3.5.0] - 2026-04-07
+
+### Added
+- Mobile hamburger menu (☰) for section navigation on small screens
+- Single-button theme toggle for mobile (tap to switch dark ↔ light)
+- Language switcher moved into mobile menu dropdown
+- `toggleTheme()` function for one-tap theme switching
+- Auto-close mobile menu on link tap
+
+### Changed
+- Desktop nav unchanged — dual theme buttons and inline language switcher preserved
+- Mobile nav streamlined: Logo + ☀/🌙 + ☰ only in top bar
+
 ## [v3.4.0] - 2026-04-07
 
 ### Added
