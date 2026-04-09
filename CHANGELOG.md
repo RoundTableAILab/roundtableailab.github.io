@@ -4,6 +4,12 @@ All notable changes to the RoundTable AI Lab website will be documented in this 
 
 Format follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [v3.5.4] - 2026-04-09
+
+### Added
+- Agentic Coding project: ai-news-digest — trilingual AI news digest (Anthropic, OpenAI, Google, GitHub)
+- `p2d` i18n translations for the new project in all 4 languages (EN, 中文, 日本語, FR)
+
 ## [v3.5.2] - 2026-04-07
 
 ### Added
