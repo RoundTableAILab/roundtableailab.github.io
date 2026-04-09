@@ -1,5 +1,27 @@
 [
   {
+    "id": "2026-04-08-microsoft-vibevoice-voice-ai",
+    "author": "lijun",
+    "date": "2026-04-08",
+    "pinned": false,
+    "title": {
+      "en": "The Voice AI Challenges That Microsoft VibeVoice Solves",
+      "zh": "Microsoft VibeVoice 解决的语音 AI 课题",
+      "ja": "Microsoft VibeVoice が解決する音声 AI の課題",
+      "fr": "Les défis de l'IA vocale résolus par Microsoft VibeVoice"
+    },
+    "summary": {
+      "en": "A technical deep dive into Microsoft's open-source VibeVoice framework, examining how its Next-token Diffusion architecture and ultra-efficient Speech Tokenizer overcome the limitations of conventional voice AI in long-form, multi-speaker scenarios.",
+      "zh": "深度解析微软开源框架 VibeVoice 的技术架构，探讨其 Next-token Diffusion 架构与超高效语音分词器如何突破传统语音 AI 在长时、多人场景中的局限。",
+      "ja": "Microsoftのオープンソースフレームワーク VibeVoice を技術的に徹底解剖。Next-token Diffusionアーキテクチャと超高効率Speech Tokenizerが、従来の音声AIにおける長尺・多話者の課題をいかに克服するかを解説。",
+      "fr": "Analyse technique approfondie du framework open source VibeVoice de Microsoft, examinant comment son architecture Next-token Diffusion et son Speech Tokenizer ultra-efficace surmontent les limites de l'IA vocale conventionnelle dans les scénarios longs et multi-locuteurs."
+    },
+    "links": {
+      "linkedin": "https://www.linkedin.com/pulse/microsoft-vibevoice-%E3%81%8C%E8%A7%A3%E6%B1%BA%E3%81%99%E3%82%8B%E9%9F%B3%E5%A3%B0-ai-%E3%81%AE%E8%AA%B2%E9%A1%8Cencn-follows-lijun-liu-mba-jkohc",
+      "x": "https://x.com/LancelotRT_AI/status/2041731075882504499"
+    }
+  },
+  {
     "id": "2026-04-03-claude-code-howto-guide",
     "author": "lijun",
     "date": "2026-04-03",
