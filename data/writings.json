@@ -1,5 +1,27 @@
 [
   {
+    "id": "2026-04-17-openai-codex-claude-code-role-splitting",
+    "author": "lijun",
+    "date": "2026-04-17",
+    "pinned": false,
+    "title": {
+      "en": "How Should OpenAI Codex and Claude Code Work Together? In 2026, Role Specialization Matters More Than a Single \"Best\" AI",
+      "zh": "OpenAI Codex 与 Claude Code 应该如何协作：到了 2026，比起单一“最强 AI”，更重要的是角色分工",
+      "ja": "OpenAI CodexとClaude Codeはどう組み合わせるべきか：2026年は『最強の1つ』より『役割分担』の時代へ",
+      "fr": "Comment combiner OpenAI Codex et Claude Code : en 2026, la repartition des roles compte plus qu'une IA unique dite \"la meilleure\""
+    },
+    "summary": {
+      "en": "A practical analysis of why AI-assisted development is moving from picking one strongest model to assigning distinct roles across agents, and how Claude Code, Codex, MCP, CI, and approval flows can work together in a realistic delivery pipeline.",
+      "zh": "从实务角度分析 AI 开发为何正在从选择单一最强模型，转向让不同 Agent 各司其职，并梳理 Claude Code、Codex、MCP、CI 与审批流程如何组成一条可落地的交付流水线。",
+      "ja": "AI開発が『一番強いモデルを1つ選ぶ』発想から、『得意分野ごとに役割分担する』発想へ移りつつある理由を実務目線で整理。Claude Code、Codex、MCP、CI、承認フローをどう組み合わせれば現実的な開発パイプラインになるのかを解説。",
+      "fr": "Une analyse pratique de la transition du developpement assiste par IA : au lieu de choisir un modele unique suppose etre le plus puissant, il devient plus efficace de repartir les roles entre agents. L'article explique comment Claude Code, Codex, MCP, la CI et les flux d'approbation peuvent s'assembler dans une pipeline de livraison realiste."
+    },
+    "links": {
+      "linkedin": "https://www.linkedin.com/pulse/openai-codex%E3%81%A8claude-lijun-liu-mba-lmb0c",
+      "x": "https://x.com/LancelotRT_AI/status/2045053680102355324?s=20"
+    }
+  },
+  {
     "id": "2026-04-08-microsoft-vibevoice-voice-ai",
     "author": "lijun",
     "date": "2026-04-08",

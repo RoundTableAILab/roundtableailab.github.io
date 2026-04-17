@@ -4,6 +4,11 @@ All notable changes to the RoundTable AI Lab website will be documented in this 
 
 Format follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [v3.5.5] - 2026-04-17
+
+### Added
+- New writing entry for 2026-04-17: OpenAI Codex and Claude Code role specialization article
+
 ## [v3.5.4] - 2026-04-09
 
 ### Added
