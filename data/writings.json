@@ -1,5 +1,27 @@
 [
   {
+    "id": "2026-05-21-reconsider-github-copilot",
+    "author": "lijun",
+    "date": "2026-05-21",
+    "pinned": false,
+    "title": {
+      "en": "Time to Reconsider GitHub Copilot: An Analysis for Adoption Decisions",
+      "zh": "是时候重新审视 GitHub Copilot 了：一篇面向导入决策的分析",
+      "ja": "「GitHub Copilot」を見直す時間ですーー導入判断のための分析",
+      "fr": "Il est temps de reconsiderer GitHub Copilot : une analyse pour guider les decisions d'adoption"
+    },
+    "summary": {
+      "en": "An adoption-focused analysis of GitHub Copilot as a three-surface coding agent stack spanning VS Code Agent Mode, Copilot CLI, and GitHub Cloud Agent, with practical guidance on workflow fit, rollout path, ROI, and the tradeoffs teams should evaluate before standardizing on it.",
+      "zh": "这是一篇面向导入判断的分析，从 VS Code Agent Mode、Copilot CLI 与 GitHub Cloud Agent 这三个使用界面切入，讨论 GitHub Copilot 作为 coding agent 体系的定位，并梳理团队在评估工作流适配、导入路径、ROI 与标准化取舍时应关注的关键点。",
+      "ja": "VS Code の Agent Mode、Copilot CLI、GitHub Cloud Agent という3つの surface を軸に、GitHub Copilot を coding agent スタックとして捉え直す導入判断向けの分析。ワークフロー適合性、導入ステップ、ROI、標準化前に見るべきトレードオフを実務目線で整理する。",
+      "fr": "Une analyse orientee adoption qui repositionne GitHub Copilot comme un stack de coding agents articule autour de VS Code Agent Mode, Copilot CLI et GitHub Cloud Agent, avec un cadrage pratique sur l'adequation au workflow, le parcours de deploiement, le ROI et les compromis a evaluer avant une standardisation." 
+    },
+    "links": {
+      "linkedin": "https://www.linkedin.com/pulse/github-copilot-%25E3%2582%2592%25E8%25A6%258B%25E7%259B%25B4%25E3%2581%2599%25E6%2599%2582%25E9%2596%2593%25E3%2581%25A7%25E3%2581%2599%25E3%2583%25BC%25E3%2583%25BC%25E5%25B0%258E%25E5%2585%25A5%25E5%2588%25A4%25E6%2596%25AD%25E3%2581%25AE%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AE%E5%88%86%E6%9E%90en-follows-lijun-liu-mba-rjf6c",
+      "x": "https://x.com/LancelotRT_AI/status/2057325657122869306?s=20"
+    }
+  },
+  {
     "id": "2026-04-17-openai-codex-claude-code-role-splitting",
     "author": "lijun",
     "date": "2026-04-17",
