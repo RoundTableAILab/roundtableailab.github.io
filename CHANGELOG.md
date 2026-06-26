@@ -4,6 +4,24 @@ All notable changes to the RoundTable AI Lab website will be documented in this 
 
 Format follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [v3.6.0] - 2026-06-26
+
+### Added
+- **Recent Activity section**: new horizontally scrolling section above "What I'm Working On" with YouTube video thumbnail cards
+- **Agentic Coding project**: realtime-qa-app — real-time technical Q&A & meeting notes with Teams side panel integration
+- **Event card**: Microsoft Build //localhost: Tokyo (2026.6.20) with event link and video
+- `p3d` i18n translations for realtime-qa-app in all 4 languages (EN, 中文, 日本語, FR)
+- `n6t/n6d/n6tag/n6tag2` i18n entries for the Build event in all 4 languages
+- `recent_tag/recent_title` i18n entries in all 4 languages
+
+### Changed
+- Moved Community Talk (05) and Microsoft Build (06) out of "What I'm Working On" into the new Recent Activity section
+- Removed "Next Chapter" placeholder card
+- Updated Community Talk watch link to new YouTube URL
+
+### Fixed
+- Escaped single quote in French `n6d` that caused JS syntax error and blank page
+
 ## [v3.5.5] - 2026-04-17
 
 ### Added
