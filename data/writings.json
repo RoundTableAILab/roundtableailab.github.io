@@ -1,5 +1,27 @@
 [
   {
+    "id": "2026-06-01-microsoft-agent-governance",
+    "author": "lijun",
+    "date": "2026-06-01",
+    "pinned": false,
+    "title": {
+      "en": "The AI Agent Governance Challenges Solved by Microsoft Agent Governance Toolkit",
+      "zh": "Microsoft Agent Governance Toolkit 解决的 AI Agent 运营治理问题",
+      "ja": "Microsoft Agent Governance Toolkitが解決するAIエージェント運用の統制問題",
+      "fr": "Les défis de gouvernance des agents IA résolus par Microsoft Agent Governance Toolkit"
+    },
+    "summary": {
+      "en": "A practical analysis of Microsoft's Agent Governance Toolkit, examining how it addresses the growing governance and compliance challenges organizations face when deploying AI agents at scale, drawn from real customer conversations about agent governance.",
+      "zh": "实务分析微软的 Agent Governance Toolkit，基于与客户的真实对话，探讨它如何应对组织在大规模部署 AI Agent 时日益增长的治理与合规挑战。",
+      "ja": "お客様との実際の会話をきっかけに、MicrosoftのAgent Governance Toolkitを実務目線で分析。AIエージェントを大規模に展開する際に直面するガバナンス・コンプライアンス課題をどう解決するかを解説。",
+      "fr": "Une analyse pratique du Microsoft Agent Governance Toolkit, examinant comment il répond aux défis croissants de gouvernance et de conformité auxquels les organisations font face lors du déploiement d'agents IA à grande échelle, à partir de conversations réelles avec des clients."
+    },
+    "links": {
+      "linkedin": "https://www.linkedin.com/pulse/microsoft-agent-governance-lijun-liu-mba-i0gkc",
+      "x": "https://x.com/LancelotRT_AI/status/2061353903405580544?s=20"
+    }
+  },
+  {
     "id": "2026-05-21-reconsider-github-copilot",
     "author": "lijun",
     "date": "2026-05-21",
