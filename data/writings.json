@@ -1,5 +1,26 @@
 [
   {
+    "id": "2026-06-27-microsoft-build-2026-agentic-stack",
+    "author": "lijun",
+    "date": "2026-06-27",
+    "pinned": false,
+    "title": {
+      "en": "Reading Microsoft Build 2026 as an Agentic Stack, Not a Product Launch",
+      "zh": "不把 Microsoft Build 2026 当产品发布会看——以 Agentic Stack 的视角重新解读",
+      "ja": "Microsoft Build 2026を製品発表ではなくAgentic Stackとして読んでみよう",
+      "fr": "Lire Microsoft Build 2026 comme un Agentic Stack plutôt qu'une annonce produit"
+    },
+    "summary": {
+      "en": "A structural reading of Microsoft Build 2026 announcements through the lens of an Agentic Stack — connecting Azure AI Foundry, GitHub Copilot, Copilot Studio, and the agent runtime into a coherent developer platform narrative.",
+      "zh": "以 Agentic Stack 的视角结构化解读 Microsoft Build 2026——将 Azure AI Foundry、GitHub Copilot、Copilot Studio 与 Agent Runtime 串联为一个完整的开发者平台叙事。",
+      "ja": "Microsoft Build 2026の発表群をAgentic Stackのレンズで構造的に読み解く——Azure AI Foundry、GitHub Copilot、Copilot Studio、Agent Runtimeを一貫した開発者プラットフォームの物語として接続する。",
+      "fr": "Une lecture structurelle des annonces de Microsoft Build 2026 à travers le prisme d'un Agentic Stack — reliant Azure AI Foundry, GitHub Copilot, Copilot Studio et l'agent runtime en un récit cohérent de plateforme développeur."
+    },
+    "links": {
+      "linkedin": "https://www.linkedin.com/pulse/microsoft-build-2026%E3%82%92%E8%A3%BD%E5%93%81%E7%99%BA%E8%A1%A8%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8Fagentic-stack%E3%81%A8%E3%81%97%E3%81%A6%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%BF%E3%82%88%E3%81%86-lijun-liu-mba-aahfc"
+    }
+  },
+  {
     "id": "2026-06-01-microsoft-agent-governance",
     "author": "lijun",
     "date": "2026-06-01",
