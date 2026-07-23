@@ -4,6 +4,17 @@ All notable changes to the RoundTable AI Lab website will be documented in this 
 
 Format follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [v3.6.2] - 2026-07-23
+
+### Added
+- **Event card**: Guest Panel Speaker at AI × FinTech Innovation Summit 2026 (2026.7.17)
+- Optimized local event cover image and title translations in all 4 languages (EN, 中文, 日本語, FR)
+
+## [v3.6.1] - 2026-06-28
+
+### Changed
+- Updated the X handle from `@LancelotRT_AI` to `@RoundTableAILab`
+
 ## [v3.6.0] - 2026-06-26
 
 ### Added
